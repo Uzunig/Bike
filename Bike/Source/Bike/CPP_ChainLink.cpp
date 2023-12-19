@@ -12,14 +12,6 @@ ACPP_ChainLink::ACPP_ChainLink()
 	StaticMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Mesh"));
 	StaticMesh->SetupAttachment(RootComponent);
 
-	static ConstructorHelpers::FObjectFinder<UStaticMesh> ChainVisualAsset(TEXT("/Script/Engine.StaticMesh'/Game/Shapes/linck.linck'"));
-
-	if (ChainVisualAsset.Succeeded())
-	{
-		StaticMesh->SetStaticMesh(ChainVisualAsset.Object);
-		StaticMesh->SetRelativeLocation(FVector(0.0f, 0.0f, 0.0f));
-		StaticMesh->SetRelativeRotation(FRotator(0.0f, 0.0f, 90.0));
-	}
 }
 
 // Called when the game starts or when spawned

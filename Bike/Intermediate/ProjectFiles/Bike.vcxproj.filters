@@ -39,6 +39,12 @@
     <ClInclude Include="..\..\Source\Bike\Bike.h">
       <Filter>Source\Bike</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\Bike\CPP_BigLink.cpp">
+      <Filter>Source\Bike</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Bike\CPP_BigLink.h">
+      <Filter>Source\Bike</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\Bike\CPP_ChainLink.cpp">
       <Filter>Source\Bike</Filter>
     </ClCompile>
