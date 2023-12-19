@@ -1,0 +1,15 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UnrealEditor-Bike.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"D:\Projects\Bike\Bike\Intermediate\Build\Win64\x64\BikeEditor\Development\Engine\SharedPCH.Engine.Cpp20.h.obj"
+"D:\Projects\Bike\Bike\Intermediate\Build\Win64\x64\UnrealEditor\Development\Bike\Bike.init.gen.cpp.obj"
+"D:\Projects\Bike\Bike\Intermediate\Build\Win64\x64\UnrealEditor\Development\Bike\CPP_ChainLink.gen.cpp.obj"
+"D:\Projects\Bike\Bike\Intermediate\Build\Win64\x64\UnrealEditor\Development\Bike\Bike.cpp.obj"
+"D:\Projects\Bike\Bike\Intermediate\Build\Win64\x64\UnrealEditor\Development\Bike\CPP_ChainLink.cpp.obj"
+"D:\Projects\Bike\Bike\Intermediate\Build\Win64\x64\UnrealEditor\Development\Bike\Default.rc2.res"
+/OUT:"D:\Projects\Bike\Bike\Intermediate\Build\Win64\x64\UnrealEditor\Development\Bike\UnrealEditor-Bike.lib"
