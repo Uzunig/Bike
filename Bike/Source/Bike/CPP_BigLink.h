@@ -1,19 +1,28 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
 #pragma once
 
 #include "CoreMinimal.h"
-#include "CPP_ChainLink.h"
+#include "GameFramework/Actor.h"
 #include "CPP_BigLink.generated.h"
 
-/**
- * 
- */
 UCLASS()
-class BIKE_API ACPP_BigLink : public ACPP_ChainLink
+class BIKE_API ACPP_BigLink : public AActor
 {
 	GENERATED_BODY()
 
-	ACPP_BigLink();
+protected:
+	UPROPERTY(VisibleAnywhere)
+	UStaticMeshComponent* StaticMesh;
 	
+public:	
+
+	ACPP_BigLink();
+
+protected:
+
+	virtual void BeginPlay() override;
+
+public:	
+
+	virtual void Tick(float DeltaTime) override;
+
 };

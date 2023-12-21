@@ -45,16 +45,28 @@
     <ClInclude Include="..\..\Source\Bike\CPP_BigLink.h">
       <Filter>Source\Bike</Filter>
     </ClInclude>
-    <ClCompile Include="..\..\Source\Bike\CPP_ChainLink.cpp">
+    <ClCompile Include="..\..\Source\Bike\CPP_BigSprocket.cpp">
       <Filter>Source\Bike</Filter>
     </ClCompile>
-    <ClInclude Include="..\..\Source\Bike\CPP_ChainLink.h">
+    <ClInclude Include="..\..\Source\Bike\CPP_BigSprocket.h">
       <Filter>Source\Bike</Filter>
     </ClInclude>
-    <ClCompile Include="..\..\Source\Bike\CPP_MainLevelScript.cpp">
+    <ClCompile Include="..\..\Source\Bike\CPP_MainLevelScriptActor.cpp">
       <Filter>Source\Bike</Filter>
     </ClCompile>
-    <ClInclude Include="..\..\Source\Bike\CPP_MainLevelScript.h">
+    <ClInclude Include="..\..\Source\Bike\CPP_MainLevelScriptActor.h">
+      <Filter>Source\Bike</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Bike\CPP_SmallLink.cpp">
+      <Filter>Source\Bike</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Bike\CPP_SmallLink.h">
+      <Filter>Source\Bike</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Bike\CPP_SmallSprocket.cpp">
+      <Filter>Source\Bike</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Bike\CPP_SmallSprocket.h">
       <Filter>Source\Bike</Filter>
     </ClInclude>
   </ItemGroup>

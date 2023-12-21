@@ -9,9 +9,10 @@
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeCPP_SmallLink() {}
 // Cross Module References
-	BIKE_API UClass* Z_Construct_UClass_ACPP_ChainLink();
 	BIKE_API UClass* Z_Construct_UClass_ACPP_SmallLink();
 	BIKE_API UClass* Z_Construct_UClass_ACPP_SmallLink_NoRegister();
+	ENGINE_API UClass* Z_Construct_UClass_AActor();
+	ENGINE_API UClass* Z_Construct_UClass_UStaticMeshComponent_NoRegister();
 	UPackage* Z_Construct_UPackage__Script_Bike();
 // End Cross Module References
 	void ACPP_SmallLink::StaticRegisterNativesACPP_SmallLink()
@@ -28,23 +29,36 @@ void EmptyLinkFunctionForGeneratedCodeCPP_SmallLink() {}
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_StaticMesh_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_StaticMesh;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
 	};
 	UObject* (*const Z_Construct_UClass_ACPP_SmallLink_Statics::DependentSingletons[])() = {
-		(UObject* (*)())Z_Construct_UClass_ACPP_ChainLink,
+		(UObject* (*)())Z_Construct_UClass_AActor,
 		(UObject* (*)())Z_Construct_UPackage__Script_Bike,
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ACPP_SmallLink_Statics::DependentSingletons) < 16);
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACPP_SmallLink_Statics::Class_MetaDataParams[] = {
-#if !UE_BUILD_SHIPPING
-		{ "Comment", "/**\n * \n */" },
-#endif
 		{ "IncludePath", "CPP_SmallLink.h" },
 		{ "ModuleRelativePath", "CPP_SmallLink.h" },
 	};
 #endif
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACPP_SmallLink_Statics::NewProp_StaticMesh_MetaData[] = {
+		{ "Category", "CPP_SmallLink" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "CPP_SmallLink.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ACPP_SmallLink_Statics::NewProp_StaticMesh = { "StaticMesh", nullptr, (EPropertyFlags)0x00200800000a0009, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACPP_SmallLink, StaticMesh), Z_Construct_UClass_UStaticMeshComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ACPP_SmallLink_Statics::NewProp_StaticMesh_MetaData), Z_Construct_UClass_ACPP_SmallLink_Statics::NewProp_StaticMesh_MetaData) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ACPP_SmallLink_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACPP_SmallLink_Statics::NewProp_StaticMesh,
+	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_ACPP_SmallLink_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<ACPP_SmallLink>::IsAbstract,
 	};
@@ -54,15 +68,16 @@ void EmptyLinkFunctionForGeneratedCodeCPP_SmallLink() {}
 		&StaticCppClassTypeInfo,
 		DependentSingletons,
 		nullptr,
-		nullptr,
+		Z_Construct_UClass_ACPP_SmallLink_Statics::PropPointers,
 		nullptr,
 		UE_ARRAY_COUNT(DependentSingletons),
 		0,
-		0,
+		UE_ARRAY_COUNT(Z_Construct_UClass_ACPP_SmallLink_Statics::PropPointers),
 		0,
 		0x009000A4u,
 		METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ACPP_SmallLink_Statics::Class_MetaDataParams), Z_Construct_UClass_ACPP_SmallLink_Statics::Class_MetaDataParams)
 	};
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ACPP_SmallLink_Statics::PropPointers) < 2048);
 	UClass* Z_Construct_UClass_ACPP_SmallLink()
 	{
 		if (!Z_Registration_Info_UClass_ACPP_SmallLink.OuterSingleton)
@@ -82,9 +97,9 @@ void EmptyLinkFunctionForGeneratedCodeCPP_SmallLink() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Projects_Bike_Bike_Source_Bike_CPP_SmallLink_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_ACPP_SmallLink, ACPP_SmallLink::StaticClass, TEXT("ACPP_SmallLink"), &Z_Registration_Info_UClass_ACPP_SmallLink, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ACPP_SmallLink), 2345575408U) },
+		{ Z_Construct_UClass_ACPP_SmallLink, ACPP_SmallLink::StaticClass, TEXT("ACPP_SmallLink"), &Z_Registration_Info_UClass_ACPP_SmallLink, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ACPP_SmallLink), 2254282185U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Projects_Bike_Bike_Source_Bike_CPP_SmallLink_h_148283292(TEXT("/Script/Bike"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Projects_Bike_Bike_Source_Bike_CPP_SmallLink_h_779892328(TEXT("/Script/Bike"),
 		Z_CompiledInDeferFile_FID_Projects_Bike_Bike_Source_Bike_CPP_SmallLink_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Projects_Bike_Bike_Source_Bike_CPP_SmallLink_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

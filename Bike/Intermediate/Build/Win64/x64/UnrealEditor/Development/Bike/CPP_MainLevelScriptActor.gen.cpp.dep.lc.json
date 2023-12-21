@@ -1,0 +1,17 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "d:\\projects\\bike\\bike\\intermediate\\build\\win64\\unrealeditor\\inc\\bike\\uht\\cpp_mainlevelscriptactor.gen.cpp",
+        "ProvidedModule": "",
+        "PCH": "d:\\projects\\bike\\bike\\intermediate\\build\\win64\\x64\\bikeeditor\\development\\engine\\sharedpch.engine.cpp20.h.pch",
+        "Includes": [
+            "d:\\projects\\bike\\bike\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\bike\\definitions.bike.h",
+            "d:\\projects\\bike\\bike\\source\\bike\\cpp_mainlevelscriptactor.h",
+            "d:\\ue_5.3\\engine\\source\\runtime\\engine\\classes\\engine\\levelscriptactor.h",
+            "d:\\ue_5.3\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\levelscriptactor.generated.h",
+            "d:\\projects\\bike\\bike\\intermediate\\build\\win64\\unrealeditor\\inc\\bike\\uht\\cpp_mainlevelscriptactor.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}
