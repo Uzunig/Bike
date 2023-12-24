@@ -9,9 +9,9 @@
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeCPP_MainLevelScriptActor() {}
 // Cross Module References
+	BIKE_API UClass* Z_Construct_UClass_ACPP_ChainDrive_NoRegister();
 	BIKE_API UClass* Z_Construct_UClass_ACPP_MainLevelScriptActor();
 	BIKE_API UClass* Z_Construct_UClass_ACPP_MainLevelScriptActor_NoRegister();
-	ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_ALevelScriptActor();
 	UPackage* Z_Construct_UPackage__Script_Bike();
 // End Cross Module References
@@ -110,18 +110,9 @@ void EmptyLinkFunctionForGeneratedCodeCPP_MainLevelScriptActor() {}
 		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
 #if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_StepLength_MetaData[];
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_ChainDrive_MetaData[];
 #endif
-		static const UECodeGen_Private::FFloatPropertyParams NewProp_StepLength;
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_BigSprocket_MetaData[];
-#endif
-		static const UECodeGen_Private::FObjectPropertyParams NewProp_BigSprocket;
-		static const UECodeGen_Private::FObjectPropertyParams NewProp_Chain_Inner;
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_Chain_MetaData[];
-#endif
-		static const UECodeGen_Private::FArrayPropertyParams NewProp_Chain;
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_ChainDrive;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
@@ -138,43 +129,23 @@ void EmptyLinkFunctionForGeneratedCodeCPP_MainLevelScriptActor() {}
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ACPP_MainLevelScriptActor_Statics::FuncInfo) < 2048);
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACPP_MainLevelScriptActor_Statics::Class_MetaDataParams[] = {
-		{ "BlueprintType", "true" },
 #if !UE_BUILD_SHIPPING
-		{ "Comment", "/**\n *\n */" },
+		{ "Comment", "/**\n * \n */" },
 #endif
 		{ "HideCategories", "Collision Rendering Transformation" },
 		{ "IncludePath", "CPP_MainLevelScriptActor.h" },
-		{ "IsBlueprintBase", "true" },
 		{ "ModuleRelativePath", "CPP_MainLevelScriptActor.h" },
 	};
 #endif
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACPP_MainLevelScriptActor_Statics::NewProp_StepLength_MetaData[] = {
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACPP_MainLevelScriptActor_Statics::NewProp_ChainDrive_MetaData[] = {
 		{ "Category", "CPP_MainLevelScriptActor" },
 		{ "ModuleRelativePath", "CPP_MainLevelScriptActor.h" },
 	};
 #endif
-	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ACPP_MainLevelScriptActor_Statics::NewProp_StepLength = { "StepLength", nullptr, (EPropertyFlags)0x0020080000020001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACPP_MainLevelScriptActor, StepLength), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ACPP_MainLevelScriptActor_Statics::NewProp_StepLength_MetaData), Z_Construct_UClass_ACPP_MainLevelScriptActor_Statics::NewProp_StepLength_MetaData) };
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACPP_MainLevelScriptActor_Statics::NewProp_BigSprocket_MetaData[] = {
-		{ "Category", "CPP_MainLevelScriptActor" },
-		{ "ModuleRelativePath", "CPP_MainLevelScriptActor.h" },
-	};
-#endif
-	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ACPP_MainLevelScriptActor_Statics::NewProp_BigSprocket = { "BigSprocket", nullptr, (EPropertyFlags)0x0020080000020001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACPP_MainLevelScriptActor, BigSprocket), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ACPP_MainLevelScriptActor_Statics::NewProp_BigSprocket_MetaData), Z_Construct_UClass_ACPP_MainLevelScriptActor_Statics::NewProp_BigSprocket_MetaData) };
-	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ACPP_MainLevelScriptActor_Statics::NewProp_Chain_Inner = { "Chain", nullptr, (EPropertyFlags)0x0000000000020000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(0, nullptr) };
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACPP_MainLevelScriptActor_Statics::NewProp_Chain_MetaData[] = {
-		{ "Category", "CPP_MainLevelScriptActor" },
-		{ "ModuleRelativePath", "CPP_MainLevelScriptActor.h" },
-	};
-#endif
-	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_ACPP_MainLevelScriptActor_Statics::NewProp_Chain = { "Chain", nullptr, (EPropertyFlags)0x0020080000020001, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACPP_MainLevelScriptActor, Chain), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ACPP_MainLevelScriptActor_Statics::NewProp_Chain_MetaData), Z_Construct_UClass_ACPP_MainLevelScriptActor_Statics::NewProp_Chain_MetaData) };
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ACPP_MainLevelScriptActor_Statics::NewProp_ChainDrive = { "ChainDrive", nullptr, (EPropertyFlags)0x0020080000020001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACPP_MainLevelScriptActor, ChainDrive), Z_Construct_UClass_ACPP_ChainDrive_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ACPP_MainLevelScriptActor_Statics::NewProp_ChainDrive_MetaData), Z_Construct_UClass_ACPP_MainLevelScriptActor_Statics::NewProp_ChainDrive_MetaData) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ACPP_MainLevelScriptActor_Statics::PropPointers[] = {
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACPP_MainLevelScriptActor_Statics::NewProp_StepLength,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACPP_MainLevelScriptActor_Statics::NewProp_BigSprocket,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACPP_MainLevelScriptActor_Statics::NewProp_Chain_Inner,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACPP_MainLevelScriptActor_Statics::NewProp_Chain,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACPP_MainLevelScriptActor_Statics::NewProp_ChainDrive,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_ACPP_MainLevelScriptActor_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<ACPP_MainLevelScriptActor>::IsAbstract,
@@ -215,9 +186,9 @@ void EmptyLinkFunctionForGeneratedCodeCPP_MainLevelScriptActor() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Projects_Bike_Bike_Source_Bike_CPP_MainLevelScriptActor_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_ACPP_MainLevelScriptActor, ACPP_MainLevelScriptActor::StaticClass, TEXT("ACPP_MainLevelScriptActor"), &Z_Registration_Info_UClass_ACPP_MainLevelScriptActor, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ACPP_MainLevelScriptActor), 1538074027U) },
+		{ Z_Construct_UClass_ACPP_MainLevelScriptActor, ACPP_MainLevelScriptActor::StaticClass, TEXT("ACPP_MainLevelScriptActor"), &Z_Registration_Info_UClass_ACPP_MainLevelScriptActor, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ACPP_MainLevelScriptActor), 2418946356U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Projects_Bike_Bike_Source_Bike_CPP_MainLevelScriptActor_h_3839174672(TEXT("/Script/Bike"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Projects_Bike_Bike_Source_Bike_CPP_MainLevelScriptActor_h_3750229942(TEXT("/Script/Bike"),
 		Z_CompiledInDeferFile_FID_Projects_Bike_Bike_Source_Bike_CPP_MainLevelScriptActor_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Projects_Bike_Bike_Source_Bike_CPP_MainLevelScriptActor_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

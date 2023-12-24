@@ -14,21 +14,21 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define BIKE_CPP_SmallLink_generated_h
 
-#define FID_Projects_Bike_Bike_Source_Bike_CPP_SmallLink_h_10_SPARSE_DATA
-#define FID_Projects_Bike_Bike_Source_Bike_CPP_SmallLink_h_10_SPARSE_DATA_PROPERTY_ACCESSORS
-#define FID_Projects_Bike_Bike_Source_Bike_CPP_SmallLink_h_10_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
-#define FID_Projects_Bike_Bike_Source_Bike_CPP_SmallLink_h_10_RPC_WRAPPERS_NO_PURE_DECLS
-#define FID_Projects_Bike_Bike_Source_Bike_CPP_SmallLink_h_10_ACCESSORS
-#define FID_Projects_Bike_Bike_Source_Bike_CPP_SmallLink_h_10_INCLASS_NO_PURE_DECLS \
+#define FID_Projects_Bike_Bike_Source_Bike_CPP_SmallLink_h_13_SPARSE_DATA
+#define FID_Projects_Bike_Bike_Source_Bike_CPP_SmallLink_h_13_SPARSE_DATA_PROPERTY_ACCESSORS
+#define FID_Projects_Bike_Bike_Source_Bike_CPP_SmallLink_h_13_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
+#define FID_Projects_Bike_Bike_Source_Bike_CPP_SmallLink_h_13_RPC_WRAPPERS_NO_PURE_DECLS
+#define FID_Projects_Bike_Bike_Source_Bike_CPP_SmallLink_h_13_ACCESSORS
+#define FID_Projects_Bike_Bike_Source_Bike_CPP_SmallLink_h_13_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesACPP_SmallLink(); \
 	friend struct Z_Construct_UClass_ACPP_SmallLink_Statics; \
 public: \
-	DECLARE_CLASS(ACPP_SmallLink, AActor, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/Bike"), NO_API) \
+	DECLARE_CLASS(ACPP_SmallLink, ACPP_Link, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/Bike"), NO_API) \
 	DECLARE_SERIALIZER(ACPP_SmallLink)
 
 
-#define FID_Projects_Bike_Bike_Source_Bike_CPP_SmallLink_h_10_ENHANCED_CONSTRUCTORS \
+#define FID_Projects_Bike_Bike_Source_Bike_CPP_SmallLink_h_13_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API ACPP_SmallLink(ACPP_SmallLink&&); \
@@ -40,17 +40,17 @@ public: \
 	NO_API virtual ~ACPP_SmallLink();
 
 
-#define FID_Projects_Bike_Bike_Source_Bike_CPP_SmallLink_h_7_PROLOG
-#define FID_Projects_Bike_Bike_Source_Bike_CPP_SmallLink_h_10_GENERATED_BODY \
+#define FID_Projects_Bike_Bike_Source_Bike_CPP_SmallLink_h_10_PROLOG
+#define FID_Projects_Bike_Bike_Source_Bike_CPP_SmallLink_h_13_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_Projects_Bike_Bike_Source_Bike_CPP_SmallLink_h_10_SPARSE_DATA \
-	FID_Projects_Bike_Bike_Source_Bike_CPP_SmallLink_h_10_SPARSE_DATA_PROPERTY_ACCESSORS \
-	FID_Projects_Bike_Bike_Source_Bike_CPP_SmallLink_h_10_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS \
-	FID_Projects_Bike_Bike_Source_Bike_CPP_SmallLink_h_10_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_Projects_Bike_Bike_Source_Bike_CPP_SmallLink_h_10_ACCESSORS \
-	FID_Projects_Bike_Bike_Source_Bike_CPP_SmallLink_h_10_INCLASS_NO_PURE_DECLS \
-	FID_Projects_Bike_Bike_Source_Bike_CPP_SmallLink_h_10_ENHANCED_CONSTRUCTORS \
+	FID_Projects_Bike_Bike_Source_Bike_CPP_SmallLink_h_13_SPARSE_DATA \
+	FID_Projects_Bike_Bike_Source_Bike_CPP_SmallLink_h_13_SPARSE_DATA_PROPERTY_ACCESSORS \
+	FID_Projects_Bike_Bike_Source_Bike_CPP_SmallLink_h_13_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS \
+	FID_Projects_Bike_Bike_Source_Bike_CPP_SmallLink_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_Projects_Bike_Bike_Source_Bike_CPP_SmallLink_h_13_ACCESSORS \
+	FID_Projects_Bike_Bike_Source_Bike_CPP_SmallLink_h_13_INCLASS_NO_PURE_DECLS \
+	FID_Projects_Bike_Bike_Source_Bike_CPP_SmallLink_h_13_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
