@@ -180,10 +180,6 @@ void EmptyLinkFunctionForGeneratedCodeCPP_ChainDrive() {}
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_DrivenSprocket;
 #if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_SprocketDistance_MetaData[];
-#endif
-		static const UECodeGen_Private::FDoublePropertyParams NewProp_SprocketDistance;
-#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_LinkLength_MetaData[];
 #endif
 		static const UECodeGen_Private::FDoublePropertyParams NewProp_LinkLength;
@@ -192,13 +188,37 @@ void EmptyLinkFunctionForGeneratedCodeCPP_ChainDrive() {}
 #endif
 		static const UECodeGen_Private::FIntPropertyParams NewProp_LinkPairCount;
 #if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_CommonTangent_MetaData[];
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_ChainLength_MetaData[];
 #endif
-		static const UECodeGen_Private::FObjectPropertyParams NewProp_CommonTangent;
+		static const UECodeGen_Private::FDoublePropertyParams NewProp_ChainLength;
 #if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_DirectionalVectorTo_MetaData[];
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_SprocketDistance_MetaData[];
 #endif
-		static const UECodeGen_Private::FStructPropertyParams NewProp_DirectionalVectorTo;
+		static const UECodeGen_Private::FDoublePropertyParams NewProp_SprocketDistance;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_CommonTangent1_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_CommonTangent1;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_CommonTangent2_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_CommonTangent2;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_TouchPointDrivenSprocket1_MetaData[];
+#endif
+		static const UECodeGen_Private::FStructPropertyParams NewProp_TouchPointDrivenSprocket1;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_TouchPointDriveSprocket1_MetaData[];
+#endif
+		static const UECodeGen_Private::FStructPropertyParams NewProp_TouchPointDriveSprocket1;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_TouchPointDrivenSprocket2_MetaData[];
+#endif
+		static const UECodeGen_Private::FStructPropertyParams NewProp_TouchPointDrivenSprocket2;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_TouchPointDriveSprocket2_MetaData[];
+#endif
+		static const UECodeGen_Private::FStructPropertyParams NewProp_TouchPointDriveSprocket2;
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_DirectionalVectorFrom_MetaData[];
 #endif
@@ -248,13 +268,6 @@ void EmptyLinkFunctionForGeneratedCodeCPP_ChainDrive() {}
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_DrivenSprocket = { "DrivenSprocket", nullptr, (EPropertyFlags)0x0020080000020001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACPP_ChainDrive, DrivenSprocket), Z_Construct_UClass_ACPP_DrivenSprocket_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_DrivenSprocket_MetaData), Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_DrivenSprocket_MetaData) };
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_SprocketDistance_MetaData[] = {
-		{ "Category", "CPP_ChainDrive" },
-		{ "ModuleRelativePath", "CPP_ChainDrive.h" },
-	};
-#endif
-	const UECodeGen_Private::FDoublePropertyParams Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_SprocketDistance = { "SprocketDistance", nullptr, (EPropertyFlags)0x0020080000020001, UECodeGen_Private::EPropertyGenFlags::Double, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACPP_ChainDrive, SprocketDistance), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_SprocketDistance_MetaData), Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_SprocketDistance_MetaData) };
-#if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_LinkLength_MetaData[] = {
 		{ "Category", "CPP_ChainDrive" },
 		{ "ModuleRelativePath", "CPP_ChainDrive.h" },
@@ -269,19 +282,61 @@ void EmptyLinkFunctionForGeneratedCodeCPP_ChainDrive() {}
 #endif
 	const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_LinkPairCount = { "LinkPairCount", nullptr, (EPropertyFlags)0x0020080000020001, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACPP_ChainDrive, LinkPairCount), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_LinkPairCount_MetaData), Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_LinkPairCount_MetaData) };
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_CommonTangent_MetaData[] = {
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_ChainLength_MetaData[] = {
 		{ "Category", "CPP_ChainDrive" },
 		{ "ModuleRelativePath", "CPP_ChainDrive.h" },
 	};
 #endif
-	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_CommonTangent = { "CommonTangent", nullptr, (EPropertyFlags)0x0020080000020001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACPP_ChainDrive, CommonTangent), Z_Construct_UClass_UCPP_TwoCirclesCommonTangent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_CommonTangent_MetaData), Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_CommonTangent_MetaData) };
+	const UECodeGen_Private::FDoublePropertyParams Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_ChainLength = { "ChainLength", nullptr, (EPropertyFlags)0x0020080000020001, UECodeGen_Private::EPropertyGenFlags::Double, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACPP_ChainDrive, ChainLength), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_ChainLength_MetaData), Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_ChainLength_MetaData) };
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_DirectionalVectorTo_MetaData[] = {
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_SprocketDistance_MetaData[] = {
 		{ "Category", "CPP_ChainDrive" },
 		{ "ModuleRelativePath", "CPP_ChainDrive.h" },
 	};
 #endif
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_DirectionalVectorTo = { "DirectionalVectorTo", nullptr, (EPropertyFlags)0x0020080000020001, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACPP_ChainDrive, DirectionalVectorTo), Z_Construct_UScriptStruct_FVector2D, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_DirectionalVectorTo_MetaData), Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_DirectionalVectorTo_MetaData) };
+	const UECodeGen_Private::FDoublePropertyParams Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_SprocketDistance = { "SprocketDistance", nullptr, (EPropertyFlags)0x0020080000020001, UECodeGen_Private::EPropertyGenFlags::Double, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACPP_ChainDrive, SprocketDistance), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_SprocketDistance_MetaData), Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_SprocketDistance_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_CommonTangent1_MetaData[] = {
+		{ "Category", "CPP_ChainDrive" },
+		{ "ModuleRelativePath", "CPP_ChainDrive.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_CommonTangent1 = { "CommonTangent1", nullptr, (EPropertyFlags)0x0020080000020001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACPP_ChainDrive, CommonTangent1), Z_Construct_UClass_UCPP_TwoCirclesCommonTangent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_CommonTangent1_MetaData), Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_CommonTangent1_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_CommonTangent2_MetaData[] = {
+		{ "Category", "CPP_ChainDrive" },
+		{ "ModuleRelativePath", "CPP_ChainDrive.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_CommonTangent2 = { "CommonTangent2", nullptr, (EPropertyFlags)0x0020080000020001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACPP_ChainDrive, CommonTangent2), Z_Construct_UClass_UCPP_TwoCirclesCommonTangent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_CommonTangent2_MetaData), Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_CommonTangent2_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_TouchPointDrivenSprocket1_MetaData[] = {
+		{ "Category", "CPP_ChainDrive" },
+		{ "ModuleRelativePath", "CPP_ChainDrive.h" },
+	};
+#endif
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_TouchPointDrivenSprocket1 = { "TouchPointDrivenSprocket1", nullptr, (EPropertyFlags)0x0020080000020001, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACPP_ChainDrive, TouchPointDrivenSprocket1), Z_Construct_UScriptStruct_FVector2D, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_TouchPointDrivenSprocket1_MetaData), Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_TouchPointDrivenSprocket1_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_TouchPointDriveSprocket1_MetaData[] = {
+		{ "Category", "CPP_ChainDrive" },
+		{ "ModuleRelativePath", "CPP_ChainDrive.h" },
+	};
+#endif
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_TouchPointDriveSprocket1 = { "TouchPointDriveSprocket1", nullptr, (EPropertyFlags)0x0020080000020001, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACPP_ChainDrive, TouchPointDriveSprocket1), Z_Construct_UScriptStruct_FVector2D, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_TouchPointDriveSprocket1_MetaData), Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_TouchPointDriveSprocket1_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_TouchPointDrivenSprocket2_MetaData[] = {
+		{ "Category", "CPP_ChainDrive" },
+		{ "ModuleRelativePath", "CPP_ChainDrive.h" },
+	};
+#endif
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_TouchPointDrivenSprocket2 = { "TouchPointDrivenSprocket2", nullptr, (EPropertyFlags)0x0020080000020001, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACPP_ChainDrive, TouchPointDrivenSprocket2), Z_Construct_UScriptStruct_FVector2D, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_TouchPointDrivenSprocket2_MetaData), Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_TouchPointDrivenSprocket2_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_TouchPointDriveSprocket2_MetaData[] = {
+		{ "Category", "CPP_ChainDrive" },
+		{ "ModuleRelativePath", "CPP_ChainDrive.h" },
+	};
+#endif
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_TouchPointDriveSprocket2 = { "TouchPointDriveSprocket2", nullptr, (EPropertyFlags)0x0020080000020001, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACPP_ChainDrive, TouchPointDriveSprocket2), Z_Construct_UScriptStruct_FVector2D, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_TouchPointDriveSprocket2_MetaData), Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_TouchPointDriveSprocket2_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_DirectionalVectorFrom_MetaData[] = {
 		{ "Category", "CPP_ChainDrive" },
@@ -300,11 +355,16 @@ void EmptyLinkFunctionForGeneratedCodeCPP_ChainDrive() {}
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ACPP_ChainDrive_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_DriveSprocket,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_DrivenSprocket,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_SprocketDistance,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_LinkLength,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_LinkPairCount,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_CommonTangent,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_DirectionalVectorTo,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_ChainLength,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_SprocketDistance,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_CommonTangent1,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_CommonTangent2,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_TouchPointDrivenSprocket1,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_TouchPointDriveSprocket1,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_TouchPointDrivenSprocket2,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_TouchPointDriveSprocket2,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_DirectionalVectorFrom,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_Chain_Inner,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_Chain,
@@ -347,9 +407,9 @@ void EmptyLinkFunctionForGeneratedCodeCPP_ChainDrive() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Projects_Bike_Bike_Source_Bike_CPP_ChainDrive_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_ACPP_ChainDrive, ACPP_ChainDrive::StaticClass, TEXT("ACPP_ChainDrive"), &Z_Registration_Info_UClass_ACPP_ChainDrive, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ACPP_ChainDrive), 1237051614U) },
+		{ Z_Construct_UClass_ACPP_ChainDrive, ACPP_ChainDrive::StaticClass, TEXT("ACPP_ChainDrive"), &Z_Registration_Info_UClass_ACPP_ChainDrive, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ACPP_ChainDrive), 1621801293U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Projects_Bike_Bike_Source_Bike_CPP_ChainDrive_h_1807677565(TEXT("/Script/Bike"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Projects_Bike_Bike_Source_Bike_CPP_ChainDrive_h_298323925(TEXT("/Script/Bike"),
 		Z_CompiledInDeferFile_FID_Projects_Bike_Bike_Source_Bike_CPP_ChainDrive_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Projects_Bike_Bike_Source_Bike_CPP_ChainDrive_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

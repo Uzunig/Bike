@@ -1,6 +1,5 @@
 #include "CPP_Sprocket.h"
 
-#include "Math/UnrealMathUtility.h"
 
 ACPP_Sprocket::ACPP_Sprocket()
 {
@@ -46,6 +45,11 @@ double ACPP_Sprocket::GetAngularVelocity() const
 	return AngularVelocity;
 }
 
+
+void ACPP_Sprocket::SetAngularVelocity(double Value) 
+{
+	AngularVelocity = Value;
+}
 
 void ACPP_Sprocket::BeginPlay()
 {

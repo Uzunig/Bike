@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
+#include "Math/UnrealMathUtility.h"
 #include "CPP_TwoCirclesCommonTangent.generated.h"
 
 /** General equation of a line tangent to both circles
@@ -33,7 +34,13 @@ public:
 
 
 	UFUNCTION(Blueprintable)
+	double GetAngle() const; //Degrees
+
+	UFUNCTION(Blueprintable)
 	FVector2D GetDirectionalVector() const;
+
+	UFUNCTION(Blueprintable)
+	FVector2D GetClosestPoint(FVector2D Point) const;
 
 protected:
 	UPROPERTY(VisibleAnywhere)

@@ -2,6 +2,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "Math/UnrealMathUtility.h"
 #include "CPP_Sprocket.generated.h"
 
 UCLASS()
@@ -15,6 +16,12 @@ protected:
 	
 	UPROPERTY(VisibleAnywhere)
 	double Radius;
+
+	UPROPERTY(VisibleAnywhere)
+	int TeethCount;
+
+	UPROPERTY(VisibleAnywhere)
+	double LinkLength;
 
 	UPROPERTY(VisibleAnywhere)
 	double AngularVelocity;
@@ -46,6 +53,9 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	double GetAngularVelocity() const;
+
+	UFUNCTION(BlueprintCallable)
+	void SetAngularVelocity(double Value);
 	
 
 protected:

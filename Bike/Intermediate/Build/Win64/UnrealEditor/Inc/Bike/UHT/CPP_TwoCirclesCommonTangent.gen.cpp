@@ -15,11 +15,26 @@ void EmptyLinkFunctionForGeneratedCodeCPP_TwoCirclesCommonTangent() {}
 	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector2D();
 	UPackage* Z_Construct_UPackage__Script_Bike();
 // End Cross Module References
+	DEFINE_FUNCTION(UCPP_TwoCirclesCommonTangent::execGetClosestPoint)
+	{
+		P_GET_STRUCT(FVector2D,Z_Param_Point);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(FVector2D*)Z_Param__Result=P_THIS->GetClosestPoint(Z_Param_Point);
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(UCPP_TwoCirclesCommonTangent::execGetDirectionalVector)
 	{
 		P_FINISH;
 		P_NATIVE_BEGIN;
 		*(FVector2D*)Z_Param__Result=P_THIS->GetDirectionalVector();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(UCPP_TwoCirclesCommonTangent::execGetAngle)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(double*)Z_Param__Result=P_THIS->GetAngle();
 		P_NATIVE_END;
 	}
 	DEFINE_FUNCTION(UCPP_TwoCirclesCommonTangent::execGetY)
@@ -67,8 +82,10 @@ void EmptyLinkFunctionForGeneratedCodeCPP_TwoCirclesCommonTangent() {}
 		UClass* Class = UCPP_TwoCirclesCommonTangent::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
 			{ "GetA", &UCPP_TwoCirclesCommonTangent::execGetA },
+			{ "GetAngle", &UCPP_TwoCirclesCommonTangent::execGetAngle },
 			{ "GetB", &UCPP_TwoCirclesCommonTangent::execGetB },
 			{ "GetC", &UCPP_TwoCirclesCommonTangent::execGetC },
+			{ "GetClosestPoint", &UCPP_TwoCirclesCommonTangent::execGetClosestPoint },
 			{ "GetDirectionalVector", &UCPP_TwoCirclesCommonTangent::execGetDirectionalVector },
 			{ "GetY", &UCPP_TwoCirclesCommonTangent::execGetY },
 			{ "Initialize", &UCPP_TwoCirclesCommonTangent::execInitialize },
@@ -106,6 +123,42 @@ void EmptyLinkFunctionForGeneratedCodeCPP_TwoCirclesCommonTangent() {}
 		if (!ReturnFunction)
 		{
 			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UCPP_TwoCirclesCommonTangent_GetA_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_UCPP_TwoCirclesCommonTangent_GetAngle_Statics
+	{
+		struct CPP_TwoCirclesCommonTangent_eventGetAngle_Parms
+		{
+			double ReturnValue;
+		};
+		static const UECodeGen_Private::FDoublePropertyParams NewProp_ReturnValue;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FDoublePropertyParams Z_Construct_UFunction_UCPP_TwoCirclesCommonTangent_GetAngle_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Double, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(CPP_TwoCirclesCommonTangent_eventGetAngle_Parms, ReturnValue), METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UCPP_TwoCirclesCommonTangent_GetAngle_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UCPP_TwoCirclesCommonTangent_GetAngle_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UCPP_TwoCirclesCommonTangent_GetAngle_Statics::Function_MetaDataParams[] = {
+		{ "BlueprintType", "true" },
+		{ "IsBlueprintBase", "true" },
+		{ "ModuleRelativePath", "CPP_TwoCirclesCommonTangent.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UCPP_TwoCirclesCommonTangent_GetAngle_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UCPP_TwoCirclesCommonTangent, nullptr, "GetAngle", nullptr, nullptr, Z_Construct_UFunction_UCPP_TwoCirclesCommonTangent_GetAngle_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UCPP_TwoCirclesCommonTangent_GetAngle_Statics::PropPointers), sizeof(Z_Construct_UFunction_UCPP_TwoCirclesCommonTangent_GetAngle_Statics::CPP_TwoCirclesCommonTangent_eventGetAngle_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x40020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UCPP_TwoCirclesCommonTangent_GetAngle_Statics::Function_MetaDataParams), Z_Construct_UFunction_UCPP_TwoCirclesCommonTangent_GetAngle_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UCPP_TwoCirclesCommonTangent_GetAngle_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_UCPP_TwoCirclesCommonTangent_GetAngle_Statics::CPP_TwoCirclesCommonTangent_eventGetAngle_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_UCPP_TwoCirclesCommonTangent_GetAngle()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UCPP_TwoCirclesCommonTangent_GetAngle_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -177,6 +230,46 @@ void EmptyLinkFunctionForGeneratedCodeCPP_TwoCirclesCommonTangent() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_UCPP_TwoCirclesCommonTangent_GetClosestPoint_Statics
+	{
+		struct CPP_TwoCirclesCommonTangent_eventGetClosestPoint_Parms
+		{
+			FVector2D Point;
+			FVector2D ReturnValue;
+		};
+		static const UECodeGen_Private::FStructPropertyParams NewProp_Point;
+		static const UECodeGen_Private::FStructPropertyParams NewProp_ReturnValue;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UCPP_TwoCirclesCommonTangent_GetClosestPoint_Statics::NewProp_Point = { "Point", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(CPP_TwoCirclesCommonTangent_eventGetClosestPoint_Parms, Point), Z_Construct_UScriptStruct_FVector2D, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UCPP_TwoCirclesCommonTangent_GetClosestPoint_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(CPP_TwoCirclesCommonTangent_eventGetClosestPoint_Parms, ReturnValue), Z_Construct_UScriptStruct_FVector2D, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UCPP_TwoCirclesCommonTangent_GetClosestPoint_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UCPP_TwoCirclesCommonTangent_GetClosestPoint_Statics::NewProp_Point,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UCPP_TwoCirclesCommonTangent_GetClosestPoint_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UCPP_TwoCirclesCommonTangent_GetClosestPoint_Statics::Function_MetaDataParams[] = {
+		{ "BlueprintType", "true" },
+		{ "IsBlueprintBase", "true" },
+		{ "ModuleRelativePath", "CPP_TwoCirclesCommonTangent.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UCPP_TwoCirclesCommonTangent_GetClosestPoint_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UCPP_TwoCirclesCommonTangent, nullptr, "GetClosestPoint", nullptr, nullptr, Z_Construct_UFunction_UCPP_TwoCirclesCommonTangent_GetClosestPoint_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UCPP_TwoCirclesCommonTangent_GetClosestPoint_Statics::PropPointers), sizeof(Z_Construct_UFunction_UCPP_TwoCirclesCommonTangent_GetClosestPoint_Statics::CPP_TwoCirclesCommonTangent_eventGetClosestPoint_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x40820401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UCPP_TwoCirclesCommonTangent_GetClosestPoint_Statics::Function_MetaDataParams), Z_Construct_UFunction_UCPP_TwoCirclesCommonTangent_GetClosestPoint_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UCPP_TwoCirclesCommonTangent_GetClosestPoint_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_UCPP_TwoCirclesCommonTangent_GetClosestPoint_Statics::CPP_TwoCirclesCommonTangent_eventGetClosestPoint_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_UCPP_TwoCirclesCommonTangent_GetClosestPoint()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UCPP_TwoCirclesCommonTangent_GetClosestPoint_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	struct Z_Construct_UFunction_UCPP_TwoCirclesCommonTangent_GetDirectionalVector_Statics
 	{
 		struct CPP_TwoCirclesCommonTangent_eventGetDirectionalVector_Parms
@@ -197,8 +290,14 @@ void EmptyLinkFunctionForGeneratedCodeCPP_TwoCirclesCommonTangent() {}
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UCPP_TwoCirclesCommonTangent_GetDirectionalVector_Statics::Function_MetaDataParams[] = {
 		{ "BlueprintType", "true" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "//Degrees\n" },
+#endif
 		{ "IsBlueprintBase", "true" },
 		{ "ModuleRelativePath", "CPP_TwoCirclesCommonTangent.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "Degrees" },
+#endif
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UCPP_TwoCirclesCommonTangent_GetDirectionalVector_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UCPP_TwoCirclesCommonTangent, nullptr, "GetDirectionalVector", nullptr, nullptr, Z_Construct_UFunction_UCPP_TwoCirclesCommonTangent_GetDirectionalVector_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UCPP_TwoCirclesCommonTangent_GetDirectionalVector_Statics::PropPointers), sizeof(Z_Construct_UFunction_UCPP_TwoCirclesCommonTangent_GetDirectionalVector_Statics::CPP_TwoCirclesCommonTangent_eventGetDirectionalVector_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x40820401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UCPP_TwoCirclesCommonTangent_GetDirectionalVector_Statics::Function_MetaDataParams), Z_Construct_UFunction_UCPP_TwoCirclesCommonTangent_GetDirectionalVector_Statics::Function_MetaDataParams) };
@@ -332,9 +431,11 @@ void EmptyLinkFunctionForGeneratedCodeCPP_TwoCirclesCommonTangent() {}
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UCPP_TwoCirclesCommonTangent_Statics::DependentSingletons) < 16);
 	const FClassFunctionLinkInfo Z_Construct_UClass_UCPP_TwoCirclesCommonTangent_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_UCPP_TwoCirclesCommonTangent_GetA, "GetA" }, // 1044958873
+		{ &Z_Construct_UFunction_UCPP_TwoCirclesCommonTangent_GetAngle, "GetAngle" }, // 2122121026
 		{ &Z_Construct_UFunction_UCPP_TwoCirclesCommonTangent_GetB, "GetB" }, // 3550951485
 		{ &Z_Construct_UFunction_UCPP_TwoCirclesCommonTangent_GetC, "GetC" }, // 2724086578
-		{ &Z_Construct_UFunction_UCPP_TwoCirclesCommonTangent_GetDirectionalVector, "GetDirectionalVector" }, // 88656823
+		{ &Z_Construct_UFunction_UCPP_TwoCirclesCommonTangent_GetClosestPoint, "GetClosestPoint" }, // 1103839559
+		{ &Z_Construct_UFunction_UCPP_TwoCirclesCommonTangent_GetDirectionalVector, "GetDirectionalVector" }, // 1169816019
 		{ &Z_Construct_UFunction_UCPP_TwoCirclesCommonTangent_GetY, "GetY" }, // 3385412726
 		{ &Z_Construct_UFunction_UCPP_TwoCirclesCommonTangent_Initialize, "Initialize" }, // 701018162
 	};
@@ -416,9 +517,9 @@ void EmptyLinkFunctionForGeneratedCodeCPP_TwoCirclesCommonTangent() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Projects_Bike_Bike_Source_Bike_CPP_TwoCirclesCommonTangent_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UCPP_TwoCirclesCommonTangent, UCPP_TwoCirclesCommonTangent::StaticClass, TEXT("UCPP_TwoCirclesCommonTangent"), &Z_Registration_Info_UClass_UCPP_TwoCirclesCommonTangent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCPP_TwoCirclesCommonTangent), 1624609436U) },
+		{ Z_Construct_UClass_UCPP_TwoCirclesCommonTangent, UCPP_TwoCirclesCommonTangent::StaticClass, TEXT("UCPP_TwoCirclesCommonTangent"), &Z_Registration_Info_UClass_UCPP_TwoCirclesCommonTangent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCPP_TwoCirclesCommonTangent), 1809822563U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Projects_Bike_Bike_Source_Bike_CPP_TwoCirclesCommonTangent_h_1468472070(TEXT("/Script/Bike"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Projects_Bike_Bike_Source_Bike_CPP_TwoCirclesCommonTangent_h_1165303908(TEXT("/Script/Bike"),
 		Z_CompiledInDeferFile_FID_Projects_Bike_Bike_Source_Bike_CPP_TwoCirclesCommonTangent_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Projects_Bike_Bike_Source_Bike_CPP_TwoCirclesCommonTangent_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

@@ -1,0 +1,15 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "d:\\projects\\bike\\bike\\intermediate\\build\\win64\\unrealeditor\\inc\\bike\\uht\\cpp_sprocket.gen.cpp",
+        "ProvidedModule": "",
+        "PCH": "d:\\projects\\bike\\bike\\intermediate\\build\\win64\\x64\\bikeeditor\\development\\engine\\sharedpch.engine.cpp20.h.pch",
+        "Includes": [
+            "d:\\projects\\bike\\bike\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\bike\\definitions.bike.h",
+            "d:\\projects\\bike\\bike\\source\\bike\\cpp_sprocket.h",
+            "d:\\projects\\bike\\bike\\intermediate\\build\\win64\\unrealeditor\\inc\\bike\\uht\\cpp_sprocket.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

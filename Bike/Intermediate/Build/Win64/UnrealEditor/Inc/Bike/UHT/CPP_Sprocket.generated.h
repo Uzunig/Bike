@@ -14,11 +14,12 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define BIKE_CPP_Sprocket_generated_h
 
-#define FID_Projects_Bike_Bike_Source_Bike_CPP_Sprocket_h_10_SPARSE_DATA
-#define FID_Projects_Bike_Bike_Source_Bike_CPP_Sprocket_h_10_SPARSE_DATA_PROPERTY_ACCESSORS
-#define FID_Projects_Bike_Bike_Source_Bike_CPP_Sprocket_h_10_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
-#define FID_Projects_Bike_Bike_Source_Bike_CPP_Sprocket_h_10_RPC_WRAPPERS_NO_PURE_DECLS \
+#define FID_Projects_Bike_Bike_Source_Bike_CPP_Sprocket_h_11_SPARSE_DATA
+#define FID_Projects_Bike_Bike_Source_Bike_CPP_Sprocket_h_11_SPARSE_DATA_PROPERTY_ACCESSORS
+#define FID_Projects_Bike_Bike_Source_Bike_CPP_Sprocket_h_11_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
+#define FID_Projects_Bike_Bike_Source_Bike_CPP_Sprocket_h_11_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execSetAngularVelocity); \
 	DECLARE_FUNCTION(execGetAngularVelocity); \
 	DECLARE_FUNCTION(execGetCenterLocation); \
 	DECLARE_FUNCTION(execGetRadius); \
@@ -27,8 +28,8 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 	DECLARE_FUNCTION(execUpdate);
 
 
-#define FID_Projects_Bike_Bike_Source_Bike_CPP_Sprocket_h_10_ACCESSORS
-#define FID_Projects_Bike_Bike_Source_Bike_CPP_Sprocket_h_10_INCLASS_NO_PURE_DECLS \
+#define FID_Projects_Bike_Bike_Source_Bike_CPP_Sprocket_h_11_ACCESSORS
+#define FID_Projects_Bike_Bike_Source_Bike_CPP_Sprocket_h_11_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesACPP_Sprocket(); \
 	friend struct Z_Construct_UClass_ACPP_Sprocket_Statics; \
@@ -37,7 +38,7 @@ public: \
 	DECLARE_SERIALIZER(ACPP_Sprocket)
 
 
-#define FID_Projects_Bike_Bike_Source_Bike_CPP_Sprocket_h_10_ENHANCED_CONSTRUCTORS \
+#define FID_Projects_Bike_Bike_Source_Bike_CPP_Sprocket_h_11_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API ACPP_Sprocket(ACPP_Sprocket&&); \
@@ -49,17 +50,17 @@ public: \
 	NO_API virtual ~ACPP_Sprocket();
 
 
-#define FID_Projects_Bike_Bike_Source_Bike_CPP_Sprocket_h_7_PROLOG
-#define FID_Projects_Bike_Bike_Source_Bike_CPP_Sprocket_h_10_GENERATED_BODY \
+#define FID_Projects_Bike_Bike_Source_Bike_CPP_Sprocket_h_8_PROLOG
+#define FID_Projects_Bike_Bike_Source_Bike_CPP_Sprocket_h_11_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_Projects_Bike_Bike_Source_Bike_CPP_Sprocket_h_10_SPARSE_DATA \
-	FID_Projects_Bike_Bike_Source_Bike_CPP_Sprocket_h_10_SPARSE_DATA_PROPERTY_ACCESSORS \
-	FID_Projects_Bike_Bike_Source_Bike_CPP_Sprocket_h_10_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS \
-	FID_Projects_Bike_Bike_Source_Bike_CPP_Sprocket_h_10_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_Projects_Bike_Bike_Source_Bike_CPP_Sprocket_h_10_ACCESSORS \
-	FID_Projects_Bike_Bike_Source_Bike_CPP_Sprocket_h_10_INCLASS_NO_PURE_DECLS \
-	FID_Projects_Bike_Bike_Source_Bike_CPP_Sprocket_h_10_ENHANCED_CONSTRUCTORS \
+	FID_Projects_Bike_Bike_Source_Bike_CPP_Sprocket_h_11_SPARSE_DATA \
+	FID_Projects_Bike_Bike_Source_Bike_CPP_Sprocket_h_11_SPARSE_DATA_PROPERTY_ACCESSORS \
+	FID_Projects_Bike_Bike_Source_Bike_CPP_Sprocket_h_11_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS \
+	FID_Projects_Bike_Bike_Source_Bike_CPP_Sprocket_h_11_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_Projects_Bike_Bike_Source_Bike_CPP_Sprocket_h_11_ACCESSORS \
+	FID_Projects_Bike_Bike_Source_Bike_CPP_Sprocket_h_11_INCLASS_NO_PURE_DECLS \
+	FID_Projects_Bike_Bike_Source_Bike_CPP_Sprocket_h_11_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

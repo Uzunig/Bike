@@ -29,19 +29,34 @@ protected:
 	ACPP_DrivenSprocket* DrivenSprocket = nullptr;
 
 	UPROPERTY(VisibleAnywhere)
-	double SprocketDistance = 500.0;
-
-	UPROPERTY(VisibleAnywhere)
 	double LinkLength = 15.0;
 
 	UPROPERTY(VisibleAnywhere)
 	int LinkPairCount = 100;
 
 	UPROPERTY(VisibleAnywhere)
-	UCPP_TwoCirclesCommonTangent* CommonTangent = nullptr;
+	double ChainLength;
 
-	UPROPERTY(VisibleANywhere)
-	FVector2D DirectionalVectorTo;
+	UPROPERTY(VisibleAnywhere)
+	double SprocketDistance;
+
+	UPROPERTY(VisibleAnywhere)
+	UCPP_TwoCirclesCommonTangent* CommonTangent1 = nullptr;
+
+	UPROPERTY(VisibleAnywhere)
+	UCPP_TwoCirclesCommonTangent* CommonTangent2 = nullptr;
+
+	UPROPERTY(VisibleAnywhere)
+	FVector2D TouchPointDrivenSprocket1;
+
+	UPROPERTY(VisibleAnywhere)
+	FVector2D TouchPointDriveSprocket1;
+
+	UPROPERTY(VisibleAnywhere)
+	FVector2D TouchPointDrivenSprocket2;
+
+	UPROPERTY(VisibleAnywhere)
+	FVector2D TouchPointDriveSprocket2;
 
 	UPROPERTY(VisibleANywhere)
 	FVector2D DirectionalVectorFrom;

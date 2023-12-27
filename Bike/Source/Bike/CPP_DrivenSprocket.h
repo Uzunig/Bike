@@ -15,6 +15,4 @@ class BIKE_API ACPP_DrivenSprocket : public ACPP_Sprocket
 public:
 	ACPP_DrivenSprocket();
 
-	virtual void Update(float DeltaTime) override;
-	
 };

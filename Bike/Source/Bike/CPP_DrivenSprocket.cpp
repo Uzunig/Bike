@@ -2,8 +2,11 @@
 
 ACPP_DrivenSprocket::ACPP_DrivenSprocket()
 {
-	Radius = 50.0;
-	AngularVelocity = 20.0;
+	
+	TeethCount = 15;
+	LinkLength = 15.0;
+	Radius = LinkLength / (2.0 * sin((360.0 / TeethCount / 2.0) * PI / 180.0));
+
 	static ConstructorHelpers::FObjectFinder<UStaticMesh> DrivenSprocketVisualAsset(TEXT("/Script/Engine.StaticMesh'/Game/Shapes/Small_Spocket.Small_Spocket'"));
 
 	if (DrivenSprocketVisualAsset.Succeeded())
@@ -13,8 +16,9 @@ ACPP_DrivenSprocket::ACPP_DrivenSprocket()
 		StaticMesh->SetRelativeRotation(FRotator(0.0, 0.0, 0.0));
 		StaticMesh->SetRelativeScale3D(FVector(10.0, 10.0, 10.0));
 	}
-}
 
-void ACPP_DrivenSprocket::Update(float DeltaTime)
-{
+	GEngine->AddOnScreenDebugMessage(INDEX_NONE, 20.0f, FColor::Cyan, FString::Printf(TEXT("Radius = %f"), Radius));
+	GEngine->AddOnScreenDebugMessage(INDEX_NONE, 20.0f, FColor::Cyan, FString::Printf(TEXT("Link length = %f"), LinkLength));
+	GEngine->AddOnScreenDebugMessage(INDEX_NONE, 20.0f, FColor::Cyan, FString::Printf(TEXT("Teeth count = %d"), TeethCount));
+	GEngine->AddOnScreenDebugMessage(INDEX_NONE, 20.0f, FColor::Yellow, TEXT("Driven sprocket:"));
 }
