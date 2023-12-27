@@ -15,13 +15,7 @@
     <Filter Include="Config">
       <UniqueIdentifier>{FA535FFB-25E1-3D20-B416-52F9BE21E06E}</UniqueIdentifier>
     </Filter>
-    <None Include="..\..\Config\DefaultEditor.ini">
-      <Filter>Config</Filter>
-    </None>
     <None Include="..\..\Config\DefaultEngine.ini">
-      <Filter>Config</Filter>
-    </None>
-    <None Include="..\..\Config\DefaultGame.ini">
       <Filter>Config</Filter>
     </None>
     <None Include="..\..\Config\DefaultInput.ini">
@@ -85,6 +79,12 @@
       <Filter>Source\Bike</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\Bike\CPP_Sprocket.h">
+      <Filter>Source\Bike</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Bike\CPP_TwoCirclesCommonTangent.cpp">
+      <Filter>Source\Bike</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Bike\CPP_TwoCirclesCommonTangent.h">
       <Filter>Source\Bike</Filter>
     </ClInclude>
   </ItemGroup>

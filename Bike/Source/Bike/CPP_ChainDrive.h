@@ -6,6 +6,7 @@
 #include "CPP_DrivenSprocket.h"
 #include "CPP_BigLink.h"
 #include "CPP_SmallLink.h"
+#include "CPP_TwoCirclesCommonTangent.h"
 #include "CPP_ChainDrive.generated.h"
 
 /**
@@ -31,14 +32,33 @@ protected:
 	double SprocketDistance = 500.0;
 
 	UPROPERTY(VisibleAnywhere)
-	TArray<ACPP_Link*> Chain;
+	double LinkLength = 15.0;
 
 	UPROPERTY(VisibleAnywhere)
 	int LinkPairCount = 100;
 
+	UPROPERTY(VisibleAnywhere)
+	UCPP_TwoCirclesCommonTangent* CommonTangent = nullptr;
+
+	UPROPERTY(VisibleANywhere)
+	FVector2D DirectionalVectorTo;
+
+	UPROPERTY(VisibleANywhere)
+	FVector2D DirectionalVectorFrom;
+
+
+	UPROPERTY(VisibleAnywhere)
+	TArray<ACPP_Link*> Chain;
+
 protected:
 	UFUNCTION(BlueprintCallable)
+	void SpawnSprockets();
+
+	UFUNCTION(BlueprintCallable)
 	void Init();
+
+	UFUNCTION(BlueprintCallable)
+	void SpawnLinks();
 
 	UFUNCTION(BlueprintCallable)
 	void Update(float DeltaTime);

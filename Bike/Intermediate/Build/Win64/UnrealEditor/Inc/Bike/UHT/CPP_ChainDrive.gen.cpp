@@ -14,6 +14,8 @@ void EmptyLinkFunctionForGeneratedCodeCPP_ChainDrive() {}
 	BIKE_API UClass* Z_Construct_UClass_ACPP_DrivenSprocket_NoRegister();
 	BIKE_API UClass* Z_Construct_UClass_ACPP_DriveSprocket_NoRegister();
 	BIKE_API UClass* Z_Construct_UClass_ACPP_Link_NoRegister();
+	BIKE_API UClass* Z_Construct_UClass_UCPP_TwoCirclesCommonTangent_NoRegister();
+	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector2D();
 	ENGINE_API UClass* Z_Construct_UClass_AActor();
 	UPackage* Z_Construct_UPackage__Script_Bike();
 // End Cross Module References
@@ -25,6 +27,13 @@ void EmptyLinkFunctionForGeneratedCodeCPP_ChainDrive() {}
 		P_THIS->Update(Z_Param_DeltaTime);
 		P_NATIVE_END;
 	}
+	DEFINE_FUNCTION(ACPP_ChainDrive::execSpawnLinks)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->SpawnLinks();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(ACPP_ChainDrive::execInit)
 	{
 		P_FINISH;
@@ -32,11 +41,20 @@ void EmptyLinkFunctionForGeneratedCodeCPP_ChainDrive() {}
 		P_THIS->Init();
 		P_NATIVE_END;
 	}
+	DEFINE_FUNCTION(ACPP_ChainDrive::execSpawnSprockets)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->SpawnSprockets();
+		P_NATIVE_END;
+	}
 	void ACPP_ChainDrive::StaticRegisterNativesACPP_ChainDrive()
 	{
 		UClass* Class = ACPP_ChainDrive::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
 			{ "Init", &ACPP_ChainDrive::execInit },
+			{ "SpawnLinks", &ACPP_ChainDrive::execSpawnLinks },
+			{ "SpawnSprockets", &ACPP_ChainDrive::execSpawnSprockets },
 			{ "Update", &ACPP_ChainDrive::execUpdate },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
@@ -60,6 +78,50 @@ void EmptyLinkFunctionForGeneratedCodeCPP_ChainDrive() {}
 		if (!ReturnFunction)
 		{
 			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ACPP_ChainDrive_Init_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_ACPP_ChainDrive_SpawnLinks_Statics
+	{
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ACPP_ChainDrive_SpawnLinks_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "CPP_ChainDrive.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ACPP_ChainDrive_SpawnLinks_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ACPP_ChainDrive, nullptr, "SpawnLinks", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04080401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ACPP_ChainDrive_SpawnLinks_Statics::Function_MetaDataParams), Z_Construct_UFunction_ACPP_ChainDrive_SpawnLinks_Statics::Function_MetaDataParams) };
+	UFunction* Z_Construct_UFunction_ACPP_ChainDrive_SpawnLinks()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ACPP_ChainDrive_SpawnLinks_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_ACPP_ChainDrive_SpawnSprockets_Statics
+	{
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ACPP_ChainDrive_SpawnSprockets_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "CPP_ChainDrive.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ACPP_ChainDrive_SpawnSprockets_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ACPP_ChainDrive, nullptr, "SpawnSprockets", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04080401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ACPP_ChainDrive_SpawnSprockets_Statics::Function_MetaDataParams), Z_Construct_UFunction_ACPP_ChainDrive_SpawnSprockets_Statics::Function_MetaDataParams) };
+	UFunction* Z_Construct_UFunction_ACPP_ChainDrive_SpawnSprockets()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ACPP_ChainDrive_SpawnSprockets_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -121,15 +183,31 @@ void EmptyLinkFunctionForGeneratedCodeCPP_ChainDrive() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_SprocketDistance_MetaData[];
 #endif
 		static const UECodeGen_Private::FDoublePropertyParams NewProp_SprocketDistance;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_LinkLength_MetaData[];
+#endif
+		static const UECodeGen_Private::FDoublePropertyParams NewProp_LinkLength;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_LinkPairCount_MetaData[];
+#endif
+		static const UECodeGen_Private::FIntPropertyParams NewProp_LinkPairCount;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_CommonTangent_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_CommonTangent;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_DirectionalVectorTo_MetaData[];
+#endif
+		static const UECodeGen_Private::FStructPropertyParams NewProp_DirectionalVectorTo;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_DirectionalVectorFrom_MetaData[];
+#endif
+		static const UECodeGen_Private::FStructPropertyParams NewProp_DirectionalVectorFrom;
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_Chain_Inner;
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_Chain_MetaData[];
 #endif
 		static const UECodeGen_Private::FArrayPropertyParams NewProp_Chain;
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_LinkPairCount_MetaData[];
-#endif
-		static const UECodeGen_Private::FIntPropertyParams NewProp_LinkPairCount;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
@@ -141,6 +219,8 @@ void EmptyLinkFunctionForGeneratedCodeCPP_ChainDrive() {}
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ACPP_ChainDrive_Statics::DependentSingletons) < 16);
 	const FClassFunctionLinkInfo Z_Construct_UClass_ACPP_ChainDrive_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_ACPP_ChainDrive_Init, "Init" }, // 3267084447
+		{ &Z_Construct_UFunction_ACPP_ChainDrive_SpawnLinks, "SpawnLinks" }, // 3354559453
+		{ &Z_Construct_UFunction_ACPP_ChainDrive_SpawnSprockets, "SpawnSprockets" }, // 2242713084
 		{ &Z_Construct_UFunction_ACPP_ChainDrive_Update, "Update" }, // 309656363
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ACPP_ChainDrive_Statics::FuncInfo) < 2048);
@@ -174,6 +254,41 @@ void EmptyLinkFunctionForGeneratedCodeCPP_ChainDrive() {}
 	};
 #endif
 	const UECodeGen_Private::FDoublePropertyParams Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_SprocketDistance = { "SprocketDistance", nullptr, (EPropertyFlags)0x0020080000020001, UECodeGen_Private::EPropertyGenFlags::Double, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACPP_ChainDrive, SprocketDistance), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_SprocketDistance_MetaData), Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_SprocketDistance_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_LinkLength_MetaData[] = {
+		{ "Category", "CPP_ChainDrive" },
+		{ "ModuleRelativePath", "CPP_ChainDrive.h" },
+	};
+#endif
+	const UECodeGen_Private::FDoublePropertyParams Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_LinkLength = { "LinkLength", nullptr, (EPropertyFlags)0x0020080000020001, UECodeGen_Private::EPropertyGenFlags::Double, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACPP_ChainDrive, LinkLength), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_LinkLength_MetaData), Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_LinkLength_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_LinkPairCount_MetaData[] = {
+		{ "Category", "CPP_ChainDrive" },
+		{ "ModuleRelativePath", "CPP_ChainDrive.h" },
+	};
+#endif
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_LinkPairCount = { "LinkPairCount", nullptr, (EPropertyFlags)0x0020080000020001, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACPP_ChainDrive, LinkPairCount), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_LinkPairCount_MetaData), Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_LinkPairCount_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_CommonTangent_MetaData[] = {
+		{ "Category", "CPP_ChainDrive" },
+		{ "ModuleRelativePath", "CPP_ChainDrive.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_CommonTangent = { "CommonTangent", nullptr, (EPropertyFlags)0x0020080000020001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACPP_ChainDrive, CommonTangent), Z_Construct_UClass_UCPP_TwoCirclesCommonTangent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_CommonTangent_MetaData), Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_CommonTangent_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_DirectionalVectorTo_MetaData[] = {
+		{ "Category", "CPP_ChainDrive" },
+		{ "ModuleRelativePath", "CPP_ChainDrive.h" },
+	};
+#endif
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_DirectionalVectorTo = { "DirectionalVectorTo", nullptr, (EPropertyFlags)0x0020080000020001, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACPP_ChainDrive, DirectionalVectorTo), Z_Construct_UScriptStruct_FVector2D, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_DirectionalVectorTo_MetaData), Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_DirectionalVectorTo_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_DirectionalVectorFrom_MetaData[] = {
+		{ "Category", "CPP_ChainDrive" },
+		{ "ModuleRelativePath", "CPP_ChainDrive.h" },
+	};
+#endif
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_DirectionalVectorFrom = { "DirectionalVectorFrom", nullptr, (EPropertyFlags)0x0020080000020001, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACPP_ChainDrive, DirectionalVectorFrom), Z_Construct_UScriptStruct_FVector2D, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_DirectionalVectorFrom_MetaData), Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_DirectionalVectorFrom_MetaData) };
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_Chain_Inner = { "Chain", nullptr, (EPropertyFlags)0x0000000000020000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UClass_ACPP_Link_NoRegister, METADATA_PARAMS(0, nullptr) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_Chain_MetaData[] = {
@@ -182,20 +297,17 @@ void EmptyLinkFunctionForGeneratedCodeCPP_ChainDrive() {}
 	};
 #endif
 	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_Chain = { "Chain", nullptr, (EPropertyFlags)0x0020080000020001, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACPP_ChainDrive, Chain), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_Chain_MetaData), Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_Chain_MetaData) };
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_LinkPairCount_MetaData[] = {
-		{ "Category", "CPP_ChainDrive" },
-		{ "ModuleRelativePath", "CPP_ChainDrive.h" },
-	};
-#endif
-	const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_LinkPairCount = { "LinkPairCount", nullptr, (EPropertyFlags)0x0020080000020001, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACPP_ChainDrive, LinkPairCount), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_LinkPairCount_MetaData), Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_LinkPairCount_MetaData) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ACPP_ChainDrive_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_DriveSprocket,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_DrivenSprocket,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_SprocketDistance,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_LinkLength,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_LinkPairCount,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_CommonTangent,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_DirectionalVectorTo,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_DirectionalVectorFrom,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_Chain_Inner,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_Chain,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACPP_ChainDrive_Statics::NewProp_LinkPairCount,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_ACPP_ChainDrive_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<ACPP_ChainDrive>::IsAbstract,
@@ -235,9 +347,9 @@ void EmptyLinkFunctionForGeneratedCodeCPP_ChainDrive() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Projects_Bike_Bike_Source_Bike_CPP_ChainDrive_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_ACPP_ChainDrive, ACPP_ChainDrive::StaticClass, TEXT("ACPP_ChainDrive"), &Z_Registration_Info_UClass_ACPP_ChainDrive, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ACPP_ChainDrive), 3775502989U) },
+		{ Z_Construct_UClass_ACPP_ChainDrive, ACPP_ChainDrive::StaticClass, TEXT("ACPP_ChainDrive"), &Z_Registration_Info_UClass_ACPP_ChainDrive, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ACPP_ChainDrive), 1237051614U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Projects_Bike_Bike_Source_Bike_CPP_ChainDrive_h_3332074940(TEXT("/Script/Bike"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Projects_Bike_Bike_Source_Bike_CPP_ChainDrive_h_1807677565(TEXT("/Script/Bike"),
 		Z_CompiledInDeferFile_FID_Projects_Bike_Bike_Source_Bike_CPP_ChainDrive_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Projects_Bike_Bike_Source_Bike_CPP_ChainDrive_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

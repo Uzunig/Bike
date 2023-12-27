@@ -14,17 +14,19 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define BIKE_CPP_ChainDrive_generated_h
 
-#define FID_Projects_Bike_Bike_Source_Bike_CPP_ChainDrive_h_17_SPARSE_DATA
-#define FID_Projects_Bike_Bike_Source_Bike_CPP_ChainDrive_h_17_SPARSE_DATA_PROPERTY_ACCESSORS
-#define FID_Projects_Bike_Bike_Source_Bike_CPP_ChainDrive_h_17_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
-#define FID_Projects_Bike_Bike_Source_Bike_CPP_ChainDrive_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
+#define FID_Projects_Bike_Bike_Source_Bike_CPP_ChainDrive_h_18_SPARSE_DATA
+#define FID_Projects_Bike_Bike_Source_Bike_CPP_ChainDrive_h_18_SPARSE_DATA_PROPERTY_ACCESSORS
+#define FID_Projects_Bike_Bike_Source_Bike_CPP_ChainDrive_h_18_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
+#define FID_Projects_Bike_Bike_Source_Bike_CPP_ChainDrive_h_18_RPC_WRAPPERS_NO_PURE_DECLS \
  \
 	DECLARE_FUNCTION(execUpdate); \
-	DECLARE_FUNCTION(execInit);
+	DECLARE_FUNCTION(execSpawnLinks); \
+	DECLARE_FUNCTION(execInit); \
+	DECLARE_FUNCTION(execSpawnSprockets);
 
 
-#define FID_Projects_Bike_Bike_Source_Bike_CPP_ChainDrive_h_17_ACCESSORS
-#define FID_Projects_Bike_Bike_Source_Bike_CPP_ChainDrive_h_17_INCLASS_NO_PURE_DECLS \
+#define FID_Projects_Bike_Bike_Source_Bike_CPP_ChainDrive_h_18_ACCESSORS
+#define FID_Projects_Bike_Bike_Source_Bike_CPP_ChainDrive_h_18_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesACPP_ChainDrive(); \
 	friend struct Z_Construct_UClass_ACPP_ChainDrive_Statics; \
@@ -33,7 +35,7 @@ public: \
 	DECLARE_SERIALIZER(ACPP_ChainDrive)
 
 
-#define FID_Projects_Bike_Bike_Source_Bike_CPP_ChainDrive_h_17_ENHANCED_CONSTRUCTORS \
+#define FID_Projects_Bike_Bike_Source_Bike_CPP_ChainDrive_h_18_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API ACPP_ChainDrive(ACPP_ChainDrive&&); \
@@ -45,17 +47,17 @@ public: \
 	NO_API virtual ~ACPP_ChainDrive();
 
 
-#define FID_Projects_Bike_Bike_Source_Bike_CPP_ChainDrive_h_14_PROLOG
-#define FID_Projects_Bike_Bike_Source_Bike_CPP_ChainDrive_h_17_GENERATED_BODY \
+#define FID_Projects_Bike_Bike_Source_Bike_CPP_ChainDrive_h_15_PROLOG
+#define FID_Projects_Bike_Bike_Source_Bike_CPP_ChainDrive_h_18_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_Projects_Bike_Bike_Source_Bike_CPP_ChainDrive_h_17_SPARSE_DATA \
-	FID_Projects_Bike_Bike_Source_Bike_CPP_ChainDrive_h_17_SPARSE_DATA_PROPERTY_ACCESSORS \
-	FID_Projects_Bike_Bike_Source_Bike_CPP_ChainDrive_h_17_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS \
-	FID_Projects_Bike_Bike_Source_Bike_CPP_ChainDrive_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_Projects_Bike_Bike_Source_Bike_CPP_ChainDrive_h_17_ACCESSORS \
-	FID_Projects_Bike_Bike_Source_Bike_CPP_ChainDrive_h_17_INCLASS_NO_PURE_DECLS \
-	FID_Projects_Bike_Bike_Source_Bike_CPP_ChainDrive_h_17_ENHANCED_CONSTRUCTORS \
+	FID_Projects_Bike_Bike_Source_Bike_CPP_ChainDrive_h_18_SPARSE_DATA \
+	FID_Projects_Bike_Bike_Source_Bike_CPP_ChainDrive_h_18_SPARSE_DATA_PROPERTY_ACCESSORS \
+	FID_Projects_Bike_Bike_Source_Bike_CPP_ChainDrive_h_18_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS \
+	FID_Projects_Bike_Bike_Source_Bike_CPP_ChainDrive_h_18_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_Projects_Bike_Bike_Source_Bike_CPP_ChainDrive_h_18_ACCESSORS \
+	FID_Projects_Bike_Bike_Source_Bike_CPP_ChainDrive_h_18_INCLASS_NO_PURE_DECLS \
+	FID_Projects_Bike_Bike_Source_Bike_CPP_ChainDrive_h_18_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
