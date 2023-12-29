@@ -5,7 +5,7 @@
 #include "Math/UnrealMathUtility.h"
 #include "CPP_Sprocket.generated.h"
 
-UCLASS()
+UCLASS(Blueprintable)
 class BIKE_API ACPP_Sprocket : public AActor
 {
 	GENERATED_BODY()
@@ -23,7 +23,7 @@ protected:
 	UPROPERTY(VisibleAnywhere)
 	double LinkLength;
 
-	UPROPERTY(VisibleAnywhere)
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	double AngularVelocity;
 
 	UPROPERTY(VisibleAnywhere)
@@ -40,16 +40,19 @@ public:
 	virtual void Update(float DeltaTime);
 
 	UFUNCTION(BlueprintCallable)
-	double GetLastDeltaRotation();
+	double GetLastDeltaRotation() const;
 
 	UFUNCTION(BlueprintCallable)
-	double GetLastLinearBias();
+	double GetLastLinearBias() const;
 
 	UFUNCTION(BlueprintCallable)
 	double GetRadius() const;
 
+	UFUNCTION(Blueprintable)
+	int GetTeethCount() const;
+
 	UFUNCTION(BlueprintCallable)
-	FVector GetCenterLocation();
+	FVector GetCenterLocation() const;
 
 	UFUNCTION(BlueprintCallable)
 	double GetAngularVelocity() const;

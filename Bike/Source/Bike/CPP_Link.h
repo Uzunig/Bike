@@ -4,7 +4,7 @@
 #include "GameFramework/Actor.h"
 #include "CPP_Link.generated.h"
 
-UCLASS()
+UCLASS(Blueprintable)
 class BIKE_API ACPP_Link : public AActor
 {
 	GENERATED_BODY()

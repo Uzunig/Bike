@@ -10,14 +10,14 @@
 /**
  * 
  */
-UCLASS()
+UCLASS(Blueprintable)
 class BIKE_API ACPP_MainLevelScriptActor : public ALevelScriptActor
 {
 	GENERATED_BODY()
 
 protected:
 
-	UPROPERTY(VisibleAnywhere)
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	ACPP_ChainDrive* ChainDrive;
 
 protected:

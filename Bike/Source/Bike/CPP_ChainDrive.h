@@ -12,7 +12,7 @@
 /**
  * 
  */
-UCLASS()
+UCLASS(Blueprintable)
 class BIKE_API ACPP_ChainDrive : public AActor
 {
 	GENERATED_BODY()
@@ -22,17 +22,17 @@ public:
 	ACPP_ChainDrive();
 
 protected:
-	UPROPERTY(VisibleAnywhere)
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	ACPP_DriveSprocket* DriveSprocket = nullptr;
 
-	UPROPERTY(VisibleAnywhere)
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	ACPP_DrivenSprocket* DrivenSprocket = nullptr;
 
 	UPROPERTY(VisibleAnywhere)
 	double LinkLength = 15.0;
 
 	UPROPERTY(VisibleAnywhere)
-	int LinkPairCount = 100;
+	int LinkPairCount = 50;
 
 	UPROPERTY(VisibleAnywhere)
 	double ChainLength;

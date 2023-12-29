@@ -7,7 +7,7 @@
 /**
  * 
  */
-UCLASS()
+UCLASS(Blueprintable)
 class BIKE_API ACPP_BigLink : public ACPP_Link
 {
 	GENERATED_BODY()

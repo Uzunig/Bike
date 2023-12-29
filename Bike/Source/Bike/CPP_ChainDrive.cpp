@@ -30,7 +30,7 @@ void ACPP_ChainDrive::SpawnSprockets()
         if (IsValid(ACPP_DrivenSprocket::StaticClass()))
         {
             FActorSpawnParameters SpawnInfo;
-            FVector Location = FVector(0.0, -505, 0.0); //TO DO: Relative from Container class location 
+            FVector Location = FVector(0.0, -532, 0.0); //TO DO: Relative from Container class location 
             FRotator Rotation = FRotator(0.0, 0.0, 0.0);//TO DO: Relative from Container class rotation
 
             DrivenSprocket = CurrentLevel->SpawnActor<ACPP_DrivenSprocket>(Location, Rotation, SpawnInfo);
@@ -66,6 +66,7 @@ void ACPP_ChainDrive::Init()
     }
 
     ChainLength = 2.0 * LinkLength * LinkPairCount;
+    //DrivenSprocket->SetAngularVelocity(DriveSprocket->GetAngularVelocity() * DriveSprocket->GetRadius() / DrivenSprocket->GetRadius());
 
     TouchPointDrivenSprocket1 = CommonTangent1->GetClosestPoint(FVector2D(DrivenSprocket->GetCenterLocation().Y, DrivenSprocket->GetCenterLocation().Z));
     TouchPointDriveSprocket1 = CommonTangent1->GetClosestPoint(FVector2D(DriveSprocket->GetCenterLocation().Y, DriveSprocket->GetCenterLocation().Z));
@@ -83,25 +84,19 @@ void ACPP_ChainDrive::SpawnLinks()
             for (int i = 0; i < LinkPairCount; ++i)
             {
                 FActorSpawnParameters SpawnInfo;
-                double Y = TouchPointDrivenSprocket1.X + (i * 2 + 1) * 15.0;
-                double Z = CommonTangent1->GetY(Y);
-                if (   (Y > TouchPointDrivenSprocket1.X)
-                    && (Y < TouchPointDriveSprocket1.X)
-                    && (Z > 0.0))
-                {
+                double Y = (TouchPointDrivenSprocket1.X - LinkPairCount * 30.0) + (i * 2 + 1) * 15.0;
+                double Z = CommonTangent1->GetY(DrivenSprocket->GetCenterLocation().Y + 0.00001);
 
-                    FVector Location = FVector(0.0, Y, Z); //TO DO: Relative from Container class location 
-                    FRotator Rotation = FRotator(0.0, 0.0, -CommonTangent1->GetAngle());//TO DO: Relative from Container class rotation
-                    Chain.Add(CurrentLevel->SpawnActor<ACPP_BigLink>(Location, Rotation, SpawnInfo));
+                FVector Location = FVector(0.0, Y, Z); //TO DO: Relative from Container class location 
+                FRotator Rotation = FRotator(0.0, 0.0, 0);//TO DO: Relative from Container class rotation
+                Chain.Add(CurrentLevel->SpawnActor<ACPP_BigLink>(Location, Rotation, SpawnInfo));
 
-                    SpawnInfo;
-                    Y = TouchPointDrivenSprocket1.X + (i * 2) * 15.0;
-                    Z = CommonTangent1->GetY(Y);
+                SpawnInfo;
+                Y = (TouchPointDrivenSprocket1.X - LinkPairCount * 30.0) + (i * 2) * 15.0;
 
-                    Location = FVector(0.0, Y, Z);  //TO DO: Relative from Container class location 
-                    Rotation = FRotator(0.0, 0.0, -CommonTangent1->GetAngle());//TO DO: Relative from Container class rotation
-                    Chain.Add(CurrentLevel->SpawnActor<ACPP_SmallLink>(Location, Rotation, SpawnInfo));
-                }
+                Location = FVector(0.0, Y, Z);  //TO DO: Relative from Container class location 
+                Rotation = FRotator(0.0, 0.0, 0);//TO DO: Relative from Container class rotation
+                Chain.Add(CurrentLevel->SpawnActor<ACPP_SmallLink>(Location, Rotation, SpawnInfo));
             }
         }
         else
@@ -117,6 +112,7 @@ void ACPP_ChainDrive::SpawnLinks()
 
 void ACPP_ChainDrive::Update(float DeltaTime)
 {
+
     DrivenSprocket->SetAngularVelocity(DriveSprocket->GetAngularVelocity() * DriveSprocket->GetRadius() / DrivenSprocket->GetRadius());
     for (int i = 0; i < Chain.Num(); ++i)
     {
@@ -135,7 +131,7 @@ void ACPP_ChainDrive::Update(float DeltaTime)
             PreviousRadiusVector.Normalize();
             PreviousRadiusVector = PreviousRadiusVector * DriveSprocket->GetRadius();
             FVector NewRadiusVector = PreviousRadiusVector.RotateAngleAxis(DriveSprocket->GetLastDeltaRotation(), FVector(-1.0, 0.0, 0.0));
-            
+
             Chain[i]->SetActorLocation(DriveSprocket->GetCenterLocation() + NewRadiusVector);
             Chain[i]->SetActorRotation(Chain[i]->GetActorRotation() + FRotator(0.0, 0.0, DriveSprocket->GetLastDeltaRotation()));
         }
@@ -148,15 +144,20 @@ void ACPP_ChainDrive::Update(float DeltaTime)
             Chain[i]->SetActorRotation(FRotator(0.0, 0.0, -CommonTangent2->GetAngle()));
         }
         else if (((Chain[i]->GetActorLocation().Y <= TouchPointDrivenSprocket2.X) && (Chain[i]->GetActorLocation().Z < 0.0))
-            || ((Chain[i]->GetActorLocation().Y <= TouchPointDriveSprocket1.X) && (Chain[i]->GetActorLocation().Z > 0.0)))
+            || ((Chain[i]->GetActorLocation().Y <= TouchPointDrivenSprocket1.X) && (Chain[i]->GetActorLocation().Z > 0.0) && (Chain[i]->GetActorLocation().Z <= TouchPointDrivenSprocket1.Y)))
         {
             FVector PreviousRadiusVector = Chain[i]->GetActorLocation() - DrivenSprocket->GetCenterLocation();
             PreviousRadiusVector.Normalize();
             PreviousRadiusVector = PreviousRadiusVector * DrivenSprocket->GetRadius();
             FVector NewRadiusVector = PreviousRadiusVector.RotateAngleAxis(DrivenSprocket->GetLastDeltaRotation(), FVector(-1.0, 0.0, 0.0));
-            
+
             Chain[i]->SetActorLocation(DrivenSprocket->GetCenterLocation() + NewRadiusVector);
             Chain[i]->SetActorRotation(Chain[i]->GetActorRotation() + FRotator(0.0, 0.0, DrivenSprocket->GetLastDeltaRotation()));
+        }//Spawning links
+        else if ((Chain[i]->GetActorLocation().Y <= TouchPointDrivenSprocket1.X) && (Chain[i]->GetActorLocation().Z > 0.0) && (Chain[i]->GetActorLocation().Z > TouchPointDrivenSprocket1.Y))
+        {
+            Chain[i]->SetActorLocation(Chain[i]->GetActorLocation() + FVector(0.0, DriveSprocket->GetLastLinearBias(), 0.0));
+            Chain[i]->SetActorRotation(FRotator(0.0, 0.0, 0.0));
         }
     }
 }
@@ -175,5 +176,5 @@ void ACPP_ChainDrive::Tick(float DeltaTime)
 {
     Super::Tick(DeltaTime);
 
-     Update(DeltaTime);
+    Update(DeltaTime);
 }

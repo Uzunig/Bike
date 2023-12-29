@@ -14,18 +14,19 @@ ACPP_Sprocket::ACPP_Sprocket()
 void ACPP_Sprocket::Update(float DeltaTime)
 {
 	LastDeltaRotation = AngularVelocity * DeltaTime;
-	AddActorWorldRotation(FRotator(0.0, 0.0, LastDeltaRotation));
 
-	LastLinearBias = 2 * Radius * sin((LastDeltaRotation * PI / 180.0) / 2.0);
-	//LastLinearBias = 2 * PI * Radius / 360.0 * LastDeltaRotation;
+	//LastLinearBias = 2 * Radius * sin((LastDeltaRotation * PI / 180.0) / 2.0);
+	LastLinearBias = 2 * PI * Radius / 360.0 * LastDeltaRotation; //Arc length
+
+	AddActorWorldRotation(FRotator(0.0, 0.0, LastDeltaRotation * (1 + 2.8 * PI / pow(Radius,2.0))));
 }
 
-double ACPP_Sprocket::GetLastDeltaRotation()
+double ACPP_Sprocket::GetLastDeltaRotation() const
 {
 	return LastDeltaRotation;
 }
 
-double ACPP_Sprocket::GetLastLinearBias()
+double ACPP_Sprocket::GetLastLinearBias() const
 {
 	return LastLinearBias;
 }
@@ -35,9 +36,14 @@ double ACPP_Sprocket::GetRadius() const
 	return Radius;
 }
 
-FVector ACPP_Sprocket::GetCenterLocation()
+FVector ACPP_Sprocket::GetCenterLocation() const
 {
 	return GetActorLocation();
+}
+
+int ACPP_Sprocket::GetTeethCount() const
+{
+	return TeethCount;
 }
 
 double ACPP_Sprocket::GetAngularVelocity() const

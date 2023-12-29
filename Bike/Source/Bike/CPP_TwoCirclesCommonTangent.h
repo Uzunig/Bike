@@ -10,7 +10,7 @@
 /** General equation of a line tangent to both circles
  * Ax + By + C = 0 
  */
-UCLASS()
+UCLASS(Blueprintable)
 class BIKE_API UCPP_TwoCirclesCommonTangent : public UObject
 {
 	GENERATED_BODY()

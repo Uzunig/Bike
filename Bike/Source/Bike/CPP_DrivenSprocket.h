@@ -7,7 +7,7 @@
 /**
  * 
  */
-UCLASS()
+UCLASS(Blueprintable)
 class BIKE_API ACPP_DrivenSprocket : public ACPP_Sprocket
 {
 	GENERATED_BODY()

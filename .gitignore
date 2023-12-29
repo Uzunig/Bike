@@ -1,5 +1,14 @@
+# Directories
+build
+Binaries
+Config
+DerivedDataCache
+Intermediate
+Saved
+
 # Visual Studio 2015 user specific files
 .vs/
+.vsconfig
 
 # Compiled Object files
 *.slo
