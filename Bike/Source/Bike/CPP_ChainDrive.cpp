@@ -9,6 +9,16 @@ ACPP_ChainDrive::ACPP_ChainDrive()
     PrimaryActorTick.bCanEverTick = true;
 }
 
+double ACPP_ChainDrive::GetLastDeltaRotation() const
+{
+    return LastDeltaRotation;
+}
+
+void ACPP_ChainDrive::SetEntryVelocity(double Value)
+{
+    DriveSprocket->SetAngularVelocity(Value);
+}
+
 void ACPP_ChainDrive::SpawnSprockets()
 {
     UWorld* CurrentLevel = GEngine->GetCurrentPlayWorld(nullptr);
@@ -27,11 +37,24 @@ void ACPP_ChainDrive::SpawnSprockets()
             GEngine->AddOnScreenDebugMessage(-1, 2.0f, FColor::Yellow, TEXT("Is not valid: ACPP_DriveSprocket::StaticClass()"));
         }
 
+        if (IsValid(ACPP_Pedal::StaticClass()))
+        {
+            FActorSpawnParameters SpawnInfo;
+            FVector Location = FVector(70.0, 0.0, 0.0); //Need to be at (0,0) //TO DO: Relative from Container class location 
+            FRotator Rotation = FRotator(0.0, 0.0, 0.0);//TO DO: Relative from Container class rotation
+
+            Pedal = CurrentLevel->SpawnActor<ACPP_Pedal>(Location, Rotation, SpawnInfo);
+        }
+        else
+        {
+            GEngine->AddOnScreenDebugMessage(-1, 2.0f, FColor::Yellow, TEXT("Is not valid: ACPP_Pedal::StaticClass()"));
+        }
+
         if (IsValid(ACPP_DrivenSprocket::StaticClass()))
         {
             FActorSpawnParameters SpawnInfo;
-            FVector Location = FVector(0.0, -532, 0.0); //TO DO: Relative from Container class location 
-            FRotator Rotation = FRotator(0.0, 0.0, 0.0);//TO DO: Relative from Container class rotation
+            FVector Location = FVector(0.0, -571.95, -75.0); //TO DO: Relative from Container class location 
+            FRotator Rotation = FRotator(0.0, 0.0, -6.0);//TO DO: Relative from Container class rotation
 
             DrivenSprocket = CurrentLevel->SpawnActor<ACPP_DrivenSprocket>(Location, Rotation, SpawnInfo);
         }
@@ -84,7 +107,7 @@ void ACPP_ChainDrive::SpawnLinks()
             for (int i = 0; i < LinkPairCount; ++i)
             {
                 FActorSpawnParameters SpawnInfo;
-                double Y = (TouchPointDrivenSprocket1.X - LinkPairCount * 30.0) + (i * 2 + 1) * 15.0;
+                double Y = (TouchPointDrivenSprocket1.X - LinkPairCount * 30.0) + (i * 2 + 1) * 15.0;  
                 double Z = CommonTangent1->GetY(DrivenSprocket->GetCenterLocation().Y + 0.00001);
 
                 FVector Location = FVector(0.0, Y, Z); //TO DO: Relative from Container class location 
@@ -112,20 +135,27 @@ void ACPP_ChainDrive::SpawnLinks()
 
 void ACPP_ChainDrive::Update(float DeltaTime)
 {
-
     DrivenSprocket->SetAngularVelocity(DriveSprocket->GetAngularVelocity() * DriveSprocket->GetRadius() / DrivenSprocket->GetRadius());
+    Pedal->SetActorRotation(Pedal->GetActorRotation() + FRotator(0.0, 0.0, DriveSprocket->GetLastDeltaRotation()));
     for (int i = 0; i < Chain.Num(); ++i)
     {
-        if ((Chain[i]->GetActorLocation().Y > TouchPointDrivenSprocket1.X)
-            && (Chain[i]->GetActorLocation().Y < TouchPointDriveSprocket1.X)
-            && (Chain[i]->GetActorLocation().Z > 0.0))
+        FVector Locaton = Chain[i]->GetActorLocation();
+        //Spawning links
+        if ((Locaton.Y <= TouchPointDrivenSprocket1.X) && (Locaton.Z > TouchPointDrivenSprocket1.Y))
+        {
+            Chain[i]->SetActorLocation(Chain[i]->GetActorLocation() + FVector(0.0, DriveSprocket->GetLastLinearBias(), 0.0));
+            Chain[i]->SetActorRotation(FRotator(0.0, 0.0, 0.0));
+        }
+        else if (   ((Locaton.Y >= TouchPointDrivenSprocket1.X && Locaton.Y <= TouchPointDriveSprocket1.X))
+            && ((Locaton.Z >= TouchPointDrivenSprocket1.Y && Locaton.Z <= TouchPointDriveSprocket1.Y)
+                || (Locaton.Z <= TouchPointDrivenSprocket1.Y && Locaton.Z >= TouchPointDriveSprocket1.Y)))
         {
             FVector2D CorrectedPosition = CommonTangent1->GetClosestPoint(FVector2D(Chain[i]->GetActorLocation().Y, Chain[i]->GetActorLocation().Z));
             Chain[i]->SetActorLocation(FVector(0.0, CorrectedPosition.X, CorrectedPosition.Y) + FVector(0.0, CommonTangent1->GetDirectionalVector().X, CommonTangent1->GetDirectionalVector().Y) * DriveSprocket->GetLastLinearBias());
             Chain[i]->SetActorRotation(FRotator(0.0, 0.0, -CommonTangent1->GetAngle()));
         }
-        else if (((Chain[i]->GetActorLocation().Y >= TouchPointDriveSprocket1.X) && (Chain[i]->GetActorLocation().Z > 0.0))
-            || ((Chain[i]->GetActorLocation().Y >= TouchPointDriveSprocket2.X) && (Chain[i]->GetActorLocation().Z < 0.0)))
+        else if ((Locaton.Y > TouchPointDriveSprocket1.X && Locaton.Z > TouchPointDriveSprocket2.Y)
+            || (Locaton.Y > TouchPointDriveSprocket2.X && Locaton.Z < TouchPointDriveSprocket1.Y))
         {
             FVector PreviousRadiusVector = Chain[i]->GetActorLocation() - DriveSprocket->GetCenterLocation();
             PreviousRadiusVector.Normalize();
@@ -135,16 +165,16 @@ void ACPP_ChainDrive::Update(float DeltaTime)
             Chain[i]->SetActorLocation(DriveSprocket->GetCenterLocation() + NewRadiusVector);
             Chain[i]->SetActorRotation(Chain[i]->GetActorRotation() + FRotator(0.0, 0.0, DriveSprocket->GetLastDeltaRotation()));
         }
-        else if ((Chain[i]->GetActorLocation().Y > TouchPointDrivenSprocket2.X)
-            && (Chain[i]->GetActorLocation().Y < TouchPointDriveSprocket2.X)
-            && (Chain[i]->GetActorLocation().Z < 0.0))
+        else if ( ((Locaton.Y >= TouchPointDrivenSprocket2.X) && (Locaton.Y <= TouchPointDriveSprocket2.X))
+            && ((Locaton.Z >= TouchPointDrivenSprocket2.Y && Locaton.Z <= TouchPointDriveSprocket2.Y)
+                || (Locaton.Z <= TouchPointDrivenSprocket2.Y && Locaton.Z >= TouchPointDriveSprocket2.Y)))
         {
             FVector2D CorrectedPosition = CommonTangent2->GetClosestPoint(FVector2D(Chain[i]->GetActorLocation().Y, Chain[i]->GetActorLocation().Z));
             Chain[i]->SetActorLocation(FVector(0.0, CorrectedPosition.X, CorrectedPosition.Y) + FVector(0.0, -CommonTangent2->GetDirectionalVector().X, -CommonTangent2->GetDirectionalVector().Y) * DriveSprocket->GetLastLinearBias());
             Chain[i]->SetActorRotation(FRotator(0.0, 0.0, -CommonTangent2->GetAngle()));
         }
-        else if (((Chain[i]->GetActorLocation().Y <= TouchPointDrivenSprocket2.X) && (Chain[i]->GetActorLocation().Z < 0.0))
-            || ((Chain[i]->GetActorLocation().Y <= TouchPointDrivenSprocket1.X) && (Chain[i]->GetActorLocation().Z > 0.0) && (Chain[i]->GetActorLocation().Z <= TouchPointDrivenSprocket1.Y)))
+        else if ((Locaton.Y < TouchPointDrivenSprocket2.X   && Locaton.Z < TouchPointDrivenSprocket1.Y)
+              || (Locaton.Y < TouchPointDrivenSprocket1.X   && Locaton.Z > TouchPointDrivenSprocket2.Y))
         {
             FVector PreviousRadiusVector = Chain[i]->GetActorLocation() - DrivenSprocket->GetCenterLocation();
             PreviousRadiusVector.Normalize();
@@ -153,13 +183,9 @@ void ACPP_ChainDrive::Update(float DeltaTime)
 
             Chain[i]->SetActorLocation(DrivenSprocket->GetCenterLocation() + NewRadiusVector);
             Chain[i]->SetActorRotation(Chain[i]->GetActorRotation() + FRotator(0.0, 0.0, DrivenSprocket->GetLastDeltaRotation()));
-        }//Spawning links
-        else if ((Chain[i]->GetActorLocation().Y <= TouchPointDrivenSprocket1.X) && (Chain[i]->GetActorLocation().Z > 0.0) && (Chain[i]->GetActorLocation().Z > TouchPointDrivenSprocket1.Y))
-        {
-            Chain[i]->SetActorLocation(Chain[i]->GetActorLocation() + FVector(0.0, DriveSprocket->GetLastLinearBias(), 0.0));
-            Chain[i]->SetActorRotation(FRotator(0.0, 0.0, 0.0));
         }
     }
+    LastDeltaRotation = DrivenSprocket->GetLastDeltaRotation();
 }
 
 void ACPP_ChainDrive::BeginPlay()

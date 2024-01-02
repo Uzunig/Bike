@@ -4,7 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Engine/LevelScriptActor.h"
-#include "CPP_ChainDrive.h"
+#include "CPP_Bike.h"
 #include "CPP_MainLevelScriptActor.generated.h"
 
 /**
@@ -18,11 +18,17 @@ class BIKE_API ACPP_MainLevelScriptActor : public ALevelScriptActor
 protected:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
-	ACPP_ChainDrive* ChainDrive;
+	ACPP_Bike* Bike;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	double BikerVelocity = 10;
 
 protected:
 	UFUNCTION(BlueprintCallable, Category = LevelBlueprint)
 	void InitLevel();
+
+	UFUNCTION(BlueprintCallable, Category = LevelBlueprint)
+	void SetBikeEntryVelocity(double Value);
 
 	UFUNCTION(BlueprintCallable, Category = LevelBlueprint)
 	void UpdateLevel(float DeltaTime);

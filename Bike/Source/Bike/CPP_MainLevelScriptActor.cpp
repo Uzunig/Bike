@@ -6,16 +6,22 @@ void ACPP_MainLevelScriptActor::InitLevel()
     UWorld* CurrentLevel = GetWorld();
     if (IsValid(CurrentLevel))
     {
-        if (IsValid(ACPP_ChainDrive::StaticClass()))
+        if (IsValid(ACPP_Bike::StaticClass()))
         {
             FActorSpawnParameters SpawnInfo;
             FVector Location = FVector(0.0, 0.0, 0.0); 
             FRotator Rotation = FRotator(0.0, 0.0, 0.0);
 
-            ChainDrive = CurrentLevel->SpawnActor<ACPP_ChainDrive>(Location, Rotation, SpawnInfo);
+            Bike = CurrentLevel->SpawnActor<ACPP_Bike>(Location, Rotation, SpawnInfo);
         }
     }
 }
+
+void ACPP_MainLevelScriptActor::SetBikeEntryVelocity(double Value)
+{
+    Bike->SetEntryVelocity(Value);
+}
+
 
 void ACPP_MainLevelScriptActor::UpdateLevel(float DeltaTime)
 {

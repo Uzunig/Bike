@@ -3,6 +3,7 @@
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
 #include "CPP_DriveSprocket.h"
+#include "CPP_Pedal.h"
 #include "CPP_DrivenSprocket.h"
 #include "CPP_BigLink.h"
 #include "CPP_SmallLink.h"
@@ -21,9 +22,24 @@ public:
 
 	ACPP_ChainDrive();
 
+	UFUNCTION(BlueprintCallable)
+	double GetLastDeltaRotation() const;
+
+public:
+
+	UFUNCTION(BlueprintCallable, Category = LevelBlueprint)
+	void SetEntryVelocity(double Value);
+
 protected:
+
+	UPROPERTY(VisibleAnywhere)
+	double LastDeltaRotation; //Degrees
+
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	ACPP_DriveSprocket* DriveSprocket = nullptr;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	ACPP_Pedal* Pedal = nullptr;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	ACPP_DrivenSprocket* DrivenSprocket = nullptr;
@@ -32,7 +48,7 @@ protected:
 	double LinkLength = 15.0;
 
 	UPROPERTY(VisibleAnywhere)
-	int LinkPairCount = 50;
+	int LinkPairCount = 57;
 
 	UPROPERTY(VisibleAnywhere)
 	double ChainLength;
