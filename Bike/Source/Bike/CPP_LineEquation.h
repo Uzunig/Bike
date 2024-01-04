@@ -4,21 +4,23 @@
 
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
-#include "Math/UnrealMathUtility.h"
-#include "CPP_TwoCirclesCommonTangent.generated.h"
+#include "CPP_LineEquation.generated.h"
 
-/** General equation of a line tangent to both circles
- * Ax + By + C = 0 
+/**
+ * 
  */
 UCLASS(Blueprintable)
-class BIKE_API UCPP_TwoCirclesCommonTangent : public UObject
+class BIKE_API UCPP_LineEquation : public UObject
 {
 	GENERATED_BODY()
 
 public:
 
 	UFUNCTION(BlueprintCallable)
-	void Initialize(double Radius1, FVector2D Center1, double Radius2, FVector2D Center2);
+	void InitializeTwoPoints(FVector2D Point1, FVector2D Point2);
+
+	UFUNCTION(BlueprintCallable)
+	void InitializeTangentTwoCircles(double Radius1, FVector2D Center1, double Radius2, FVector2D Center2);
 
 	UFUNCTION(BlueprintCallable)
 	double GetA() const;
@@ -42,6 +44,9 @@ public:
 	UFUNCTION(Blueprintable)
 	FVector2D GetClosestPoint(FVector2D Point) const;
 
+	UFUNCTION(Blueprintable)
+	bool IsOnRight(FVector2D Point) const;
+
 protected:
 	UPROPERTY(VisibleAnywhere)
 	double A = 0.0;
@@ -52,4 +57,5 @@ protected:
 	UPROPERTY(VisibleAnywhere)
 	double C = 0.0;
 
+	
 };

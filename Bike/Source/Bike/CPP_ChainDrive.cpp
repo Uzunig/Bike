@@ -71,16 +71,17 @@ void ACPP_ChainDrive::SpawnSprockets()
 
 void ACPP_ChainDrive::Init()
 {
-    if (IsValid(UCPP_TwoCirclesCommonTangent::StaticClass()))
+    if (IsValid(UCPP_LineEquation::StaticClass()))
     {
-        CommonTangent1 = NewObject<UCPP_TwoCirclesCommonTangent>(UCPP_TwoCirclesCommonTangent::StaticClass());
-
-        CommonTangent1->Initialize(-DriveSprocket->GetRadius(), FVector2D(DriveSprocket->GetCenterLocation().Y, DriveSprocket->GetCenterLocation().Z)
+        LineThroughCenters = NewObject<UCPP_LineEquation>(UCPP_LineEquation::StaticClass());
+        LineThroughCenters->InitializeTwoPoints(FVector2D(DriveSprocket->GetCenterLocation().Y, DriveSprocket->GetCenterLocation().Z), FVector2D(DrivenSprocket->GetCenterLocation().Y, DrivenSprocket->GetCenterLocation().Z));
+       
+        CommonTangent1 = NewObject<UCPP_LineEquation>(UCPP_LineEquation::StaticClass());
+        CommonTangent1->InitializeTangentTwoCircles(-DriveSprocket->GetRadius(), FVector2D(DriveSprocket->GetCenterLocation().Y, DriveSprocket->GetCenterLocation().Z)
             , -DrivenSprocket->GetRadius(), FVector2D(DrivenSprocket->GetCenterLocation().Y, DrivenSprocket->GetCenterLocation().Z));
 
-        CommonTangent2 = NewObject<UCPP_TwoCirclesCommonTangent>(UCPP_TwoCirclesCommonTangent::StaticClass());
-
-        CommonTangent2->Initialize(DriveSprocket->GetRadius(), FVector2D(DriveSprocket->GetCenterLocation().Y, DriveSprocket->GetCenterLocation().Z)
+        CommonTangent2 = NewObject<UCPP_LineEquation>(UCPP_LineEquation::StaticClass());
+        CommonTangent2->InitializeTangentTwoCircles(DriveSprocket->GetRadius(), FVector2D(DriveSprocket->GetCenterLocation().Y, DriveSprocket->GetCenterLocation().Z)
             , DrivenSprocket->GetRadius(), FVector2D(DrivenSprocket->GetCenterLocation().Y, DrivenSprocket->GetCenterLocation().Z));
     }
     else
@@ -89,7 +90,6 @@ void ACPP_ChainDrive::Init()
     }
 
     ChainLength = 2.0 * LinkLength * LinkPairCount;
-    //DrivenSprocket->SetAngularVelocity(DriveSprocket->GetAngularVelocity() * DriveSprocket->GetRadius() / DrivenSprocket->GetRadius());
 
     TouchPointDrivenSprocket1 = CommonTangent1->GetClosestPoint(FVector2D(DrivenSprocket->GetCenterLocation().Y, DrivenSprocket->GetCenterLocation().Z));
     TouchPointDriveSprocket1 = CommonTangent1->GetClosestPoint(FVector2D(DriveSprocket->GetCenterLocation().Y, DriveSprocket->GetCenterLocation().Z));
@@ -165,9 +165,9 @@ void ACPP_ChainDrive::Update(float DeltaTime)
             Chain[i]->SetActorLocation(DriveSprocket->GetCenterLocation() + NewRadiusVector);
             Chain[i]->SetActorRotation(Chain[i]->GetActorRotation() + FRotator(0.0, 0.0, DriveSprocket->GetLastDeltaRotation()));
         }
-        else if ( ((Locaton.Y >= TouchPointDrivenSprocket2.X) && (Locaton.Y <= TouchPointDriveSprocket2.X))
-            && ((Locaton.Z >= TouchPointDrivenSprocket2.Y && Locaton.Z <= TouchPointDriveSprocket2.Y)
-                || (Locaton.Z <= TouchPointDrivenSprocket2.Y && Locaton.Z >= TouchPointDriveSprocket2.Y)))
+        else if ( (Locaton.Y >= TouchPointDrivenSprocket2.X) 
+               && (Locaton.Y <= TouchPointDriveSprocket2.X)
+               && (!LineThroughCenters->IsOnRight(FVector2D(Locaton.Y, Locaton.Z))))
         {
             FVector2D CorrectedPosition = CommonTangent2->GetClosestPoint(FVector2D(Chain[i]->GetActorLocation().Y, Chain[i]->GetActorLocation().Z));
             Chain[i]->SetActorLocation(FVector(0.0, CorrectedPosition.X, CorrectedPosition.Y) + FVector(0.0, -CommonTangent2->GetDirectionalVector().X, -CommonTangent2->GetDirectionalVector().Y) * DriveSprocket->GetLastLinearBias());

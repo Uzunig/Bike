@@ -7,7 +7,7 @@
 #include "CPP_DrivenSprocket.h"
 #include "CPP_BigLink.h"
 #include "CPP_SmallLink.h"
-#include "CPP_TwoCirclesCommonTangent.h"
+#include "CPP_LineEquation.h"
 #include "CPP_ChainDrive.generated.h"
 
 /**
@@ -57,10 +57,13 @@ protected:
 	double SprocketDistance;
 
 	UPROPERTY(VisibleAnywhere)
-	UCPP_TwoCirclesCommonTangent* CommonTangent1 = nullptr;
+	UCPP_LineEquation* LineThroughCenters = nullptr;
 
 	UPROPERTY(VisibleAnywhere)
-	UCPP_TwoCirclesCommonTangent* CommonTangent2 = nullptr;
+	UCPP_LineEquation* CommonTangent1 = nullptr;
+
+	UPROPERTY(VisibleAnywhere)
+	UCPP_LineEquation* CommonTangent2 = nullptr;
 
 	UPROPERTY(VisibleAnywhere)
 	FVector2D TouchPointDrivenSprocket1;
