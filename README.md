@@ -6,12 +6,19 @@ Unreal Engine 5, C++. </strong></h3>
 <p>This project is my initial step towards learning Unreal Engine. For some reason, I was more attracted to C++ than to Blueprints, and I developed this project mostly on C++.</p>
 
 <p>
-        <img src="logo/img2.jpeg" width="300"
-             height="300 alt="Logo">
+Below are some of my calculations:
 </p>
 <p>
-        <img src="logo/img1.jpeg" width="300"
-             height="300" alt="Logo">
+        <img src="readme_img/dis1.png" width="300"
+             height="300 alt="Common tangent">
+</p>
+<p>
+        <img src="readme_img/dis2.png" width="300"
+             height="300 alt="Sprocket">
+</p>
+<p>
+        <img src="readme_img/dis3.png" width="300"
+             height="300 alt="Angular vlocity">
 </p>
 
 <br>
