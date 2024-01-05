@@ -39,9 +39,11 @@ void ACPP_Bike::SpawnParts()
             FRotator Rotation = FRotator(0.0, 0.0, 0.0);//TO DO: Relative from Container class rotation
 
             RearTire = CurrentLevel->SpawnActor<ACPP_Tire>(Location, Rotation, SpawnInfo);
+            //RearTire->SetActorHiddenInGame(true);
 
             Location = FVector(70.0, 909.0, -78.0); //Need to be at (0,0) //TO DO: Relative from Container class location 
             FrontTire = CurrentLevel->SpawnActor<ACPP_Tire>(Location, Rotation, SpawnInfo);
+            //FrontTire->SetActorHiddenInGame(true);
         }
         else
         {

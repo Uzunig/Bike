@@ -9,7 +9,7 @@ ACPP_DriveSprocket::ACPP_DriveSprocket()
 	Radius = LinkLength / (2.0 * sin((360.0 / TeethCount / 2.0) * PI / 180.0));
 	AngularVelocity = 10.0;
 	static ConstructorHelpers::FObjectFinder<UStaticMesh> DriveSprocketVisualAsset(TEXT("/Script/Engine.StaticMesh'/Game/Shapes/DriveSprocket.DriveSprocket'"));
-	static ConstructorHelpers::FObjectFinder<UMaterialInterface> DriveSprocketMaterial(TEXT("/Script/Engine.Material'/Game/Shapes/Steel.Steel'"));
+	static ConstructorHelpers::FObjectFinder<UMaterialInterface> DriveSprocketMaterial(TEXT("/Script/Engine.Material'/Game/Shapes/Highlight2.Highlight2'"));
 
 	if (DriveSprocketVisualAsset.Succeeded() && DriveSprocketMaterial.Succeeded())
 	{

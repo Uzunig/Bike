@@ -3,8 +3,8 @@
 ACPP_BigLink::ACPP_BigLink()
 {
 	static ConstructorHelpers::FObjectFinder<UStaticMesh> BigLinkVisualAsset(TEXT("/Script/Engine.StaticMesh'/Game/Shapes/BigLink.BigLink'"));
-	static ConstructorHelpers::FObjectFinder<UMaterialInterface> BigLinkMaterial(TEXT("/Script/Engine.Material'/Game/Shapes/Bronze.Bronze'"));
-
+	static ConstructorHelpers::FObjectFinder<UMaterialInterface> BigLinkMaterial(TEXT("/Script/Engine.Material'/Game/Shapes/Highlight3.Highlight3'"));
+	  
 	if (BigLinkVisualAsset.Succeeded() && BigLinkMaterial.Succeeded())
 	{
 		StaticMesh->SetStaticMesh(BigLinkVisualAsset.Object);

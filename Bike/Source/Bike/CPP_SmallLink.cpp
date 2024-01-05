@@ -3,7 +3,7 @@
 ACPP_SmallLink::ACPP_SmallLink()
 {
 	static ConstructorHelpers::FObjectFinder<UStaticMesh> SmallLinkVisualAsset(TEXT("/Script/Engine.StaticMesh'/Game/Shapes/SmallLink.SmallLink'"));
-	static ConstructorHelpers::FObjectFinder<UMaterialInterface> SmallLinkMaterial(TEXT("/Script/Engine.Material'/Game/Shapes/Bronze.Bronze'"));
+	static ConstructorHelpers::FObjectFinder<UMaterialInterface> SmallLinkMaterial(TEXT("/Script/Engine.Material'/Game/Shapes/Highlight1.Highlight1'"));
 
 	if (SmallLinkVisualAsset.Succeeded() && SmallLinkMaterial.Succeeded())
 	{

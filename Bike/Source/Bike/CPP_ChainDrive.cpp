@@ -44,6 +44,7 @@ void ACPP_ChainDrive::SpawnSprockets()
             FRotator Rotation = FRotator(0.0, 0.0, 0.0);//TO DO: Relative from Container class rotation
 
             Pedal = CurrentLevel->SpawnActor<ACPP_Pedal>(Location, Rotation, SpawnInfo);
+            //Pedal->SetActorHiddenInGame(true);
         }
         else
         {
