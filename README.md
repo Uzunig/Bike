@@ -3,7 +3,7 @@
 Unreal Engine 5, C++. </strong></h3>
 
 <hr>
-<p>This project is my initial step towards learning Unreal Engine. For some reason, I was more attracted to C++ than to Blueprints, and I developed this project mostly on C++.</p>
+<p>C++ and a touch of analytical geometry in my first Unreal Engine project.</p>
 
 <p>
 Below are some of my calculations:
