@@ -9,7 +9,7 @@ C++ and a touch of analytical geometry in my first Unreal Engine project.
 
 <p>
         <img src="readme_img/Bmx.png" width="300"
-             height="300 alt="Demo video">
+             height="168 alt="Demo video">
 </p>
 
 <p>
