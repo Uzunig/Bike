@@ -3,7 +3,14 @@
 Unreal Engine 5, C++. </strong></h3>
 
 <hr>
-<p>C++ and a touch of analytical geometry in my first Unreal Engine project.</p>
+<p>
+C++ and a touch of analytical geometry in my first Unreal Engine project.
+</p>
+
+<p>
+        <img src="readme_img/Bmx.png" width="300"
+             height="300 alt="Demo video">
+</p>
 
 <p>
 Below are some of my calculations:
