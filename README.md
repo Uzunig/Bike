@@ -18,8 +18,12 @@
 <p>
     <a href="https://www.linkedin.com/posts/igor-uzun_c-and-a-touch-of-analytical-geometry-in-activity-7149758719138996224-z5S_?utm_source=share&utm_medium=member_desktop">
         <img src="readme_img/Bmx.png" width="300"
+<<<<<<< HEAD
              height="168" alt="Demo video">
     </a>
+=======
+             height="168 alt="Demo video">
+>>>>>>> 160df7d6be0d3fa7cb7052ad2b84ae25a19cfc5a
 </p>
 
 <p>
